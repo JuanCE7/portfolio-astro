@@ -1,6 +1,30 @@
+---
+import SocialCard from "./SocialCard.astro";
+---
+
 <section id="red" class="py-20">
-  <h2 class="text-3xl font-bold text-center mb-12">REDES</h2>
+  <h2 class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110">REDES</h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-    <!-- Social media cards will go here -->
+    <SocialCard
+      platform="Instagram"
+      username="franciscocastillo"
+      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      icon="ri:instagram-line"
+      url="#"
+    />
+    <SocialCard
+      platform="GitHub"
+      username="franciscocastillo"
+      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      icon="ri:github-line"
+      url="#"
+    />
+    <SocialCard
+      platform="LinkedIn"
+      username="franciscocastillo"
+      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      icon="ri:linkedin-line"
+      url="#"
+    />
   </div>
 </section>

@@ -1,6 +1,26 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+---
+
 <section id="projects" class="py-20">
-  <h2 class="text-3xl font-bold text-center mb-12">PROYECTOS</h2>
+  <h2 class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110">PROYECTOS</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <!-- Project cards will go here -->
+    <ProjectCard
+      title="Proyecto 1"
+      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      className="lg:col-span-2"
+    />
+    <ProjectCard
+      title="Proyecto 2"
+      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    />
+    <ProjectCard
+      title="Proyecto 3"
+      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    />
+    <ProjectCard
+      title="Proyecto 4"
+      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    />
   </div>
 </section>
