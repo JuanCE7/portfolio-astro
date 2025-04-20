@@ -1,7 +1,10 @@
 ---
+import '@fontsource-variable/outfit';
+
 interface Props {
   title: string;
 }
+
 const { title } = Astro.props;
 ---
 
@@ -9,51 +12,13 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Ing. Computación, Developer"
-    />
+    <meta name="description" content="Francisco Castillo - Personal Portfolio" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
-    <main>
-      <slot />
-    </main>
-    <script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script is:inline>
-      AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100,
-      });
-    </script>
+  <body class="font-outfit bg-gradient-to-b from-gradient-start to-gradient-end min-h-screen text-white">
+    <slot />
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  input:focus-visible,
-  select:focus-visible {
-    outline: 0;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  .swiper-pagination-bullet {
-    background: #2b82bc !important;
-  }
-  html {
-    scroll-padding-top: 5rem;
-  }
-</style>
