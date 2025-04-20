@@ -1,13 +1,77 @@
 ---
+
 ---
-<header class="fixed top-0 w-full p-4">
-  <nav class="container mx-auto flex justify-between items-center">
-    <div class="text-2xl font-bold">JUAN CASTILLO</div>
-    <div class="flex gap-6">
-      <a href="#bio" class="hover:text-primary-500 transition-colors">Bio</a>
-      <a href="#red" class="hover:text-primary-500 transition-colors">Redes</a>
-      <a href="#projects" class="hover:text-primary-500 transition-colors">Proyectos</a>
-      <a href="#contact" class="bg-white text-gradient-start px-4 py-2 rounded-full hover:bg-primary-500 hover:text-white transition-colors">Contacto</a>
+
+<nav class="fixed w-full backdrop-blur-sm z-50 shadow-sm">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-28">
+      <div class="text-2xl font-bold flex items-center">JUAN CASTILLO</div>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#bio" class="hover:text-primary-500 transition-colors">Bio</a>
+        <a href="#red" class="hover:text-primary-500 transition-colors">Redes</a
+        >
+        <a href="#projects" class="hover:text-primary-500 transition-colors"
+          >Proyectos</a
+        >
+        <a
+          href="#contact"
+          class="bg-white text-gradient-start px-4 py-2 rounded-full hover:bg-primary-500 hover:text-white transition-colors"
+          >Contacto</a
+        >
+      </div>
+      <button
+        id="mobile-menu-button"
+        class="md:hidden text-white"
+        aria-label="Menu"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
     </div>
-  </nav>
-</header>
+
+    <div id="mobile-menu" class="hidden md:hidden pb-6">
+      <div class="flex flex-col space-y-4">
+        <a href="#bio" class="hover:text-primary-500 transition-colors">Bio</a>
+        <a href="#red" class="hover:text-primary-500 transition-colors">Redes</a
+        >
+        <a href="#projects" class="hover:text-primary-500 transition-colors"
+          >Proyectos</a
+        >
+        <a
+          href="#contact"
+          class="bg-white text-gradient-start px-4 py-2 rounded-full hover:bg-primary-500 hover:text-white transition-colors"
+          >Contacto</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // Close menu when clicking on a link
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+  }
+</script>
