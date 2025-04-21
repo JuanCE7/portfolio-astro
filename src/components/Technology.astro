@@ -1,69 +1,83 @@
 ---
 import TechnologyCard from "./TechnologyCard.astro";
+const technologies = [
+  {
+    name: "JavaScript",
+    icon: "logos:javascript",
+    level: "Avanzado",
+  },
+  {
+    name: "TypeScript",
+    icon: "logos:typescript-icon",
+    level: "Avanzado",
+  },
+  {
+    name: "Node.js",
+    icon: "logos:nodejs",
+    level: "Intermedio",
+  },
+  {
+    name: "React",
+    icon: "logos:react",
+    level: "Avanzado",
+  },
+  {
+    name: "Next.js",
+    icon: "logos:nextjs-icon",
+    level: "Intermedio",
+  },
+  {
+    name: "Astro",
+    icon: "logos:astro-icon",
+    level: "Intermedio",
+  },
+  {
+    name: "Docker",
+    icon: "logos:docker-icon",
+    level: "Básico",
+  },
+  {
+    name: "MongoDB",
+    icon: "logos:mongodb-icon",
+    level: "Intermedio",
+  },
+  {
+    name: "PostgreSQL",
+    icon: "logos:postgresql",
+    level: "Avanzado",
+  },
+  {
+    name: "AWS",
+    icon: "logos:aws",
+    level: "Básico",
+  },
+  {
+    name: "Git",
+    icon: "logos:git-icon",
+    level: "Avanzado",
+  },
+  {
+    name: "Tailwind",
+    icon: "logos:tailwindcss-icon",
+    level: "Avanzado",
+  },
+];
 ---
 
 <section id="technology" class="py-20">
-    <h2 class="text-3xl font-bold text-center mb-12">TECNOLOGÍAS</h2>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-      <TechnologyCard
-        name="JavaScript"
-        icon="logos:javascript"
-        level="Avanzado"
-      />
-      <TechnologyCard
-        name="React"
-        icon="logos:react"
-        level="Avanzado"
-      />
-      <TechnologyCard
-        name="Node.js"
-        icon="logos:nodejs"
-        level="Intermedio"
-      />
-      <TechnologyCard
-        name="Python"
-        icon="logos:python"
-        level="Intermedio"
-      />
-      <TechnologyCard
-        name="TypeScript"
-        icon="logos:typescript-icon"
-        level="Avanzado"
-      />
-      <TechnologyCard
-        name="Vue.js"
-        icon="logos:vue"
-        level="Intermedio"
-      />
-      <TechnologyCard
-        name="Docker"
-        icon="logos:docker-icon"
-        level="Básico"
-      />
-      <TechnologyCard
-        name="MongoDB"
-        icon="logos:mongodb-icon"
-        level="Intermedio"
-      />
-      <TechnologyCard
-        name="PostgreSQL"
-        icon="logos:postgresql"
-        level="Avanzado"
-      />
-      <TechnologyCard
-        name="AWS"
-        icon="logos:aws"
-        level="Básico"
-      />
-      <TechnologyCard
-        name="Git"
-        icon="logos:git-icon"
-        level="Avanzado"
-      />
-      <TechnologyCard
-        name="Tailwind"
-        icon="logos:tailwindcss-icon"
-        level="Avanzado"
-      />
-    </div>
-  </section>
+  <h2 class="text-3xl font-bold text-center mb-12">TECNOLOGÍAS</h2>
+  <div
+    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+  >
+    {
+      technologies.map((technology, index) => (
+        <TechnologyCard
+          name={technology.name}
+          icon={technology.icon}
+          level={technology.level}
+          index={index}
+        />
+      ))
+    }
+  </div>
+</section>
