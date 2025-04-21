@@ -6,40 +6,25 @@ const projects = [
     title: "TestCaseCraft",
     description:
       "Proyecto de titulación el cual consiste en generar casos de prueba funcionales a partir de casos de uso mediante el uso de la Inteligencia Artificial",
-    className: "",
     url: "https://testcasecraftunl.vercel.app/",
     imageUrl: "/logo.svg",
-  },
-  {
-    title: "TestCaseCraft",
-    description:
-      "Proyecto de titulación el cual consiste en generar casos de prueba funcionales a partir de casos de uso mediante el uso de la Inteligencia Artificial",
-    className: "",
-    url: "",
-    imageUrl: "",
-  },
-  {
-    title: "MiniGames - Java FX",
-    description: "Proyecto realizado en Java FX el cual posee dos juegos de destreza mental, llamados Pares y El Ahorcado",
-    className: "",
-    url: "",
+    projectUrl: "",
+    tags: ["React Native", "Firebase", "Mobile"],
   },
 ];
 ---
 
-<section id="projects" class="py-20" data-aos="zoom-out-down">
-  <h2
-    class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110"
-  >
-    PROYECTOS
-  </h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<section id="projects" class="py-20">
+  <h2 class="text-3xl font-bold text-center mb-12">PROYECTOS</h2>
+  <div class="flex flex-col gap-8">
     {
       projects.map((project) => (
         <ProjectCard
           title={project.title}
           description={project.description}
-          className={project.className}
+          imageUrl={project.imageUrl}
+          projectUrl={project.projectUrl}
+          tags={project.tags}
         />
       ))
     }
