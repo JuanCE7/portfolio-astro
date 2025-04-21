@@ -1,26 +1,47 @@
 ---
 import ProjectCard from "./ProjectCard.astro";
+
+const projects = [
+  {
+    title: "TestCaseCraft",
+    description:
+      "Proyecto de titulación el cual consiste en generar casos de prueba funcionales a partir de casos de uso mediante el uso de la Inteligencia Artificial",
+    className: "",
+    url: "https://testcasecraftunl.vercel.app/",
+    imageUrl: "/logo.svg",
+  },
+  {
+    title: "TestCaseCraft",
+    description:
+      "Proyecto de titulación el cual consiste en generar casos de prueba funcionales a partir de casos de uso mediante el uso de la Inteligencia Artificial",
+    className: "",
+    url: "",
+    imageUrl: "",
+  },
+  {
+    title: "MiniGames - Java FX",
+    description: "Proyecto realizado en Java FX el cual posee dos juegos de destreza mental, llamados Pares y El Ahorcado",
+    className: "",
+    url: "",
+  },
+];
 ---
 
-<section id="projects" class="py-20">
-  <h2 class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110">PROYECTOS</h2>
+<section id="projects" class="py-20" data-aos="zoom-out-down">
+  <h2
+    class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110"
+  >
+    PROYECTOS
+  </h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <ProjectCard
-      title="Proyecto 1"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      className="lg:col-span-2"
-    />
-    <ProjectCard
-      title="Proyecto 2"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    />
-    <ProjectCard
-      title="Proyecto 3"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    />
-    <ProjectCard
-      title="Proyecto 4"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    />
+    {
+      projects.map((project) => (
+        <ProjectCard
+          title={project.title}
+          description={project.description}
+          className={project.className}
+        />
+      ))
+    }
   </div>
 </section>

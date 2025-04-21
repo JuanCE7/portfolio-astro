@@ -1,26 +1,50 @@
 ---
 import BioCard from "./BioCard.astro";
+
+const bios = [
+  {
+    imageUrl: "https://scontent.floh1-1.fna.fbcdn.net/v/t39.30808-6/464234379_2630585193805228_2415206655375647449_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=X5KT9bp_xyIQ7kNvwG_VxGV&_nc_oc=Adkar55ehsoYS-ngjvAuFMkMn2XRVq8E3QE1zuB4T6LFMfAxvwTxY0Q5CrplNVoQ0kQFnqJTGutE9aCGszVHItoR&_nc_zt=23&_nc_ht=scontent.floh1-1.fna&_nc_gid=r_uPsXn-79LLe7gb05kO8w&oh=00_AfHRerlPx4Kd8cgQB427QXXCNYNriwY27Z1sOCh1MVa2-w&oe=680B76A8",
+  },
+  {
+    title: "Juan Francisco Castillo Estrella",
+    description: "Entusiasta de la tecnología con una pasión arraigada por la programación y un profundo interés en el vasto campo de la Ingeniería, mi gusto en tecnologías backend y frontend me impulsa a explorar constantemente nuevas herramientas y metodologías en el desarrolo de software, estoy en busca de oportunidades que me permitan desarrolar mi intelecto y que representen un desafío. ",
+    className: "lg:col-span-2",
+  },
+  {
+    title: "Bachiller en Ciencias",
+    description: "Estudié en el Colegio del Milenio Bernardo Valdivieso desde el 2013 hasta el 2019, cursando el Bachillerato Internacional (BI)",
+    imageUrl: "https://cdn.euroinnova.edu.es/img/subidasEditor/dise%C3%B1o%20sin%20t%C3%ADtulo%20(7)%20(1)-1626092891.webp",
+  },
+  {
+    title: "Ingeniero en Ciencias de la Computación",
+    description: "Universidad Nacional de Loja",
+    imageUrl: "https://worldcampus.saintleo.edu/img/article/diferencias-entre-ingeniero-en-sistemas-e-ingeniero-en-computacion.webp",
+  },
+  {
+    title: "FreeLancer",
+    description: "Independiente",
+    imageUrl: "https://dt2sdf0db8zob.cloudfront.net/wp-content/uploads/2018/11/Why-it%E2%80%99s-Awesome-to-be-a-Freelancer-1.png",
+  },
+];
 ---
 
 <section id="bio" class="py-20">
-  <h2 class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110">BIO</h2>
+  <h2
+    class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110"
+    >
+    BIO
+  </h2>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <BioCard
-      title="Desarrollo Web"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      className="lg:col-span-2"
-    />
-    <BioCard
-      title="Diseño UI/UX"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    />
-    <BioCard
-      title="Backend Development"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    />
-    <BioCard
-      title="Mobile Development"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    />
+    {
+      bios.map((bio, index) => (
+        <BioCard
+          title={bio.title}
+          description={bio.description}
+          imageUrl={bio.imageUrl}
+          className={bio.className}
+          index={index}
+        />
+      ))
+    }
   </div>
 </section>

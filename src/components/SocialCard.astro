@@ -7,13 +7,17 @@ interface Props {
   url: string;
 }
 
-const { platform, username, description, icon, url } = Astro.props;
+const { platform, username, description, icon, url} = Astro.props;
 ---
-
-<a href={url} target="_blank" rel="noopener noreferrer" 
-  class="block bg-white/10 backdrop-blur-lg rounded-lg p-6 shadow-lg transition-transform hover:scale-105">
+<a
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="block bg-white/10 backdrop-blur-lg rounded-lg p-6 shadow-lg transition-transform hover:scale-105"
+>
   <div class="flex items-center mb-4">
-    <iconify-icon icon={icon} width="24" height="24" class="mr-2"></iconify-icon>
+    <iconify-icon icon={icon} width="24" height="24" class="mr-2"
+    ></iconify-icon>
     <h3 class="text-xl font-semibold">{platform}</h3>
   </div>
   <p class="font-medium mb-2">@{username}</p>
