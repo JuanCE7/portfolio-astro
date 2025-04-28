@@ -104,7 +104,7 @@ const technologies = [
         <TechnologyCard
           name={technology.name}
           icon={technology.icon}
-          level={technology.level}
+          level={technology.level as 'Básico' | 'Intermedio' | 'Avanzado'}
           index={index}
         />
       ))
