@@ -1,12 +1,33 @@
 ---
 import SocialLinks from "./SocialLinks.astro";
-
 ---
-<section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center">
+
+<section
+  id="hero"
+  class="min-h-screen flex flex-col items-center justify-center text-center"
+>
   <img
     src="/logo.svg"
     alt="Francisco Castillo Logo"
     class="w-96 h-96 mb-8 transition-transform hover:scale-105"
   />
-  <SocialLinks />
+  <div class="flex flex-col items-center gap-6">
+    <SocialLinks />
+    <a
+      href="/CVJuanCastillo.pdf"
+      download
+      class="group relative inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-lg rounded-full overflow-hidden transition-all duration-300 hover:bg-white/20"
+    >
+      <span class="relative z-10 font-medium"> Descargar CV </span>
+      <iconify-icon
+        icon="ri:download-line"
+        class="relative z-10 w-5 h-5 transition-transform duration-300 group-hover:translate-y-1"
+      >
+      </iconify-icon>
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-white/10 blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      >
+      </div>
+    </a>
+  </div>
 </section>
