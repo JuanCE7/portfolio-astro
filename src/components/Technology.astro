@@ -1,101 +1,103 @@
 ---
 import TechnologyCard from "./TechnologyCard.astro";
+const { t } = Astro.props;
+
 const technologies = [
   {
     name: "JavaScript",
     icon: "logos:javascript",
-    level: "Avanzado",
+    level: t("skills.level.advanced"),
   },
   {
     name: "TypeScript",
     icon: "logos:typescript-icon",
-    level: "Avanzado",
+    level: t("skills.level.advanced"),
   },
   {
     name: "HTML",
     icon: "logos:html-5",
-    level: "Intermedio",
+    level: t("skills.level.intermediate"),
   },
   {
     name: "CSS",
     icon: "logos:css-3",
-    level: "Intermedio",
+    level: t("skills.level.intermediate"),
   },
   {
     name: "Node.js",
     icon: "logos:nodejs",
-    level: "Intermedio",
+    level: t("skills.level.intermediate"),
   },
   {
     name: "React",
     icon: "logos:react",
-    level: "Intermedio",
+    level: t("skills.level.intermediate"),
   },
   {
     name: "Next.js",
     icon: "logos:nextjs-icon",
-    level: "Intermedio",
+    level: t("skills.level.intermediate"),
   },
   {
     name: "Express.js",
     icon: "logos:express",
-    level: "Intermedio",
+    level: t("skills.level.intermediate"),
   },
   {
     name: "Nest.js",
     icon: "logos:nestjs",
-    level: "Intermedio",
+    level: t("skills.level.intermediate"),
   },
   {
     name: "Astro",
     icon: "logos:astro-icon",
-    level: "Intermedio",
+    level: t("skills.level.intermediate"),
   },
   {
     name: ".NET",
     icon: "logos:dotnet",
-    level: "Básico",
+    level: t("skills.level.basic"),
   },
   {
     name: "Angular",
     icon: "logos:angular-icon",
-    level: "Intermedio",
+    level: t("skills.level.intermediate"),
   },
   {
     name: "Docker",
     icon: "logos:docker-icon",
-    level: "Intermedio",
+    level: t("skills.level.intermediate"),
   },
   {
     name: "MongoDB",
     icon: "logos:mongodb-icon",
-    level: "Intermedio",
+    level: t("skills.level.intermediate"),
   },
   {
     name: "PostgreSQL",
     icon: "logos:postgresql",
-    level: "Intermedio",
+    level: t("skills.level.intermediate"),
   },
   {
     name: "Java",
     icon: "logos:java",
-    level: "Intermedio",
+    level: t("skills.level.intermediate"),
   },
   {
     name: "Git",
     icon: "logos:git-icon",
-    level: "Avanzado",
+    level: t("skills.level.advanced"),
   },
   {
     name: "Tailwind",
     icon: "logos:tailwindcss-icon",
-    level: "Intermedio",
+    level: t("skills.level.intermediate"),
   },
 ];
 ---
 
 <section id="technology" class="py-20">
-  <h2 class="text-3xl font-bold text-center mb-12">TECNOLOGÍAS</h2>
+  <h2 class="text-3xl font-bold text-center mb-12">{t("skills.title")}</h2>
   <div
     class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
   >
@@ -104,7 +106,7 @@ const technologies = [
         <TechnologyCard
           name={technology.name}
           icon={technology.icon}
-          level={technology.level as 'Básico' | 'Intermedio' | 'Avanzado'}
+          level={technology.level}
           index={index}
         />
       ))

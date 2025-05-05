@@ -1,12 +1,12 @@
 ---
-
+const { t } = Astro.props;
 ---
 
 <section id="bio" class="py-20">
   <h2
     class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110"
   >
-    SOBRE MI
+    {t("about.title")}
   </h2>
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-8" data-aos="zoom-out-down">
     <div
@@ -22,11 +22,7 @@
       <div class="flex flex-col justify-center p-4 text-center md:text-left">
         <h3 class="text-2xl font-semibold">Juan Francisco Castillo Estrella</h3>
         <p class="text-white/70 mt-2">
-          Entusiasta de la tecnología con una pasión por la programación y un
-          profundo interés en el vasto campo de la Ingeniería. Mi gusto en
-          tecnologías backend y frontend me impulsa a explorar constantemente
-          nuevas herramientas y metodologías. Busco oportunidades que desafíen
-          mi intelecto y me permitan crecer profesionalmente.
+          {t("about.description")}
         </p>
       </div>
     </div>
@@ -34,7 +30,7 @@
       class="bg-white/10 backdrop-blur-lg rounded-lg p-6 flex flex-col gap-4 items-center text-center transition-transform hover:scale-105"
     >
       <div class="flex flex-col justify-center">
-        <h3 class="text-2xl font-semibold">Bachiller en Ciencias</h3>
+        <h3 class="text-2xl font-semibold">{t("about.gradeOne")}</h3>
         <p class="text-white/70 mt-2">Sep 2013 - Jul 2019</p>
       </div>
       <div class="w-32 h-32 rounded-full overflow-hidden">
@@ -50,7 +46,7 @@
     >
       <div class="flex flex-col justify-center">
         <h3 class="text-2xl font-semibold">
-          Ingeniero en Ciencias de la Computación
+          {t("about.gradeTwo")}
         </h3>
         <p class="text-white/70 mt-2">May 2020 - Feb 2025</p>
       </div>
@@ -66,7 +62,7 @@
       class="bg-white/10 backdrop-blur-lg rounded-lg p-6 flex flex-col gap-4 items-center text-center transition-transform hover:scale-105"
     >
       <div class="flex flex-col justify-center">
-        <h3 class="text-2xl font-semibold">FreeLancer</h3>
+        <h3 class="text-2xl font-semibold">{t("about.gradeThree")}</h3>
         <p class="text-white/70 mt-2">Oct 2024 - Act</p>
       </div>
       <div class="w-32 h-32 rounded-full overflow-hidden">
@@ -81,44 +77,44 @@
 </section>
 
 <section id="experience" class="py-20" data-aos="zoom-out-down">
-  <h2 class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110">EXPERIENCIA</h2>
+  <h2
+    class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110"
+  >
+    {t("experience.title")}
+  </h2>
+
   <div class="space-y-8">
+    <!-- Coopmego -->
     <div class="bg-white/10 backdrop-blur-lg rounded-lg p-6">
-      <h3 class="text-2xl font-semibold">Pasante en área de Tecnología</h3>
-      <p class="text-white/70">Coopmego • Apr 2024 - Oct 2024</p>
+      <h3 class="text-2xl font-semibold">{t("experience.coopmego.role")}</h3>
+      <p class="text-white/70">{t("experience.coopmego.company")}</p>
       <ul class="mt-4 space-y-2 text-white/80">
-        <li>
-          • Diseño, organización y codificación de Servicios Web en framework .NET
-        </li>
-        <li>• Elaboración de Sp's en bases de datos como Postgres, Sybase, SQL Server. </li>
-        <li>• Diseño, organización, codificación de librerías y App web en React con Typescript, uso de Storybooks.</li>
-        <li>• Documentación de API's, Planes de Pruebas y Manuales de Usuario </li>
+        <li>• {t("experience.coopmego.task1")}</li>
+        <li>• {t("experience.coopmego.task2")}</li>
+        <li>• {t("experience.coopmego.task3")}</li>
+        <li>• {t("experience.coopmego.task4")}</li>
       </ul>
     </div>
+
+    <!-- UNL -->
     <div class="bg-white/10 backdrop-blur-lg rounded-lg p-6">
-      <h3 class="text-2xl font-semibold">Pasante en Área de Mantenimiento</h3>
-      <p class="text-white/70">Universidad Nacional de Loja • Apr 2023 - Oct 2023</p>
+      <h3 class="text-2xl font-semibold">{t("experience.unl.role")}</h3>
+      <p class="text-white/70">{t("experience.unl.company")}</p>
       <ul class="mt-4 space-y-2 text-white/80">
-        <li>
-          • Mantenimiento de dispositivos electrónicos, cambio de componentes y pruebas de rendimiento. 
-        </li>
-        <li>
-          • Configuración y particionamiento de sistemas operativos (Linux, Windows).
-        </li>
-        <li>• Instalación y enrutamiento de proyectores, impresoras y computadores. </li>
+        <li>• {t("experience.unl.task1")}</li>
+        <li>• {t("experience.unl.task2")}</li>
+        <li>• {t("experience.unl.task3")}</li>
       </ul>
     </div>
+
+    <!-- Freelance -->
     <div class="bg-white/10 backdrop-blur-lg rounded-lg p-6">
-      <h3 class="text-2xl font-semibold">Desarrollador</h3>
-      <p class="text-white/70">Freelance • Oct 2024 - Presente</p>
+      <h3 class="text-2xl font-semibold">{t("experience.freelance.role")}</h3>
+      <p class="text-white/70">{t("experience.freelance.company")}</p>
       <ul class="mt-4 space-y-2 text-white/80">
-        <li>
-          • Desarrollo de páginas web con HTML, JS, CSS; con frameworks como Next, Astro, Angular.  
-        </li>
-        <li>
-          • Desarrollo de aplicaciones de escritorio en Java con Java FX.
-        </li>
-        <li>• Uso de base de datos como MongoDB, Postgres, MySQL. </li>
+        <li>• {t("experience.freelance.task1")}</li>
+        <li>• {t("experience.freelance.task2")}</li>
+        <li>• {t("experience.freelance.task3")}</li>
       </ul>
     </div>
   </div>

@@ -1,5 +1,7 @@
 ---
+import LanguageSelector from "./LanguageSelector.astro";
 
+const { t } = Astro.props;
 ---
 
 <nav class="fixed w-full backdrop-blur-sm z-50">
@@ -10,22 +12,19 @@
       </div>
       <div class="hidden md:flex items-center space-x-8">
         <a href="#bio" class="hover:text-primary-500 transition-colors"
-          >Sobre mi</a
+          >{t("nav.about")}</a
         >
         <a href="#experience" class="hover:text-primary-500 transition-colors"
-          >Experiencia</a
+          >{t("nav.experience")}</a
         >
         <a href="#projects" class="hover:text-primary-500 transition-colors"
-          >Proyectos</a
+          >{t("nav.projects")}</a
         >
         <a href="#technology" class="hover:text-primary-500 transition-colors"
-          >Habilidades</a
+          >{t("nav.skills")}</a
         >
-
-        <a
-          href="#red"
-          class="bg-white text-gradient-start px-4 py-2 rounded-full hover:bg-primary-500 hover:text-white transition-colors"
-          >Contacto</a
+        <a href="#red" class="hover:text-primary-500 transition-colors"
+          >{t("nav.contact")}</a
         >
       </div>
       <button
@@ -47,26 +46,27 @@
             d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
+      <LanguageSelector />
     </div>
 
     <div id="mobile-menu" class="hidden md:hidden pb-6">
       <div class="flex flex-col space-y-4">
         <a href="#bio" class="hover:text-primary-500 transition-colors"
-          >Sobre mi</a
+          >{t("nav.about")}</a
         >
         <a href="#experience" class="hover:text-primary-500 transition-colors"
-          >Experiencia</a
+          >{t("nav.experience")}</a
         >
         <a href="#projects" class="hover:text-primary-500 transition-colors"
-          >Proyectos</a
+          >{t("nav.projects")}</a
         >
         <a href="#technology" class="hover:text-primary-500 transition-colors"
-          >Habilidades</a
+          >{t("nav.skills")}</a
         >
         <a
           href="#red"
           class="bg-white text-gradient-start px-4 py-2 rounded-full hover:bg-primary-500 hover:text-white transition-colors"
-          >Contacto</a
+          >{t("nav.contact")}</a
         >
       </div>
     </div>

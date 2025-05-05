@@ -3,51 +3,48 @@ import SocialCard from "./SocialCard.astro";
 
 const phoneNumber = "593987466394";
 const defaultMessage = "Hola, me gustaría contactar contigo";
+const { t } = Astro.props;
+
 const reds = [
   {
     platform: "Instagram",
     username: "juanito_rex01",
-    description:
-      "En esta red social capturo pequeños detalles de la vida mediante ilustraciones",
+    description: t("socials.instagram.description"),
     icon: "ri:instagram-line",
     url: "https://www.instagram.com/juanito_rex01/",
   },
   {
     platform: "GitHub",
     username: "JuanCE7",
-    description:
-      "Es la plataforma para poder subir mi código y manejar los repositorios de proyectos personales",
+    description: t("socials.github.description"),
     icon: "ri:github-line",
     url: "https://github.com/JuanCE7",
   },
   {
     platform: "LinkedIn",
     username: "Juan Castillo",
-    description:
-      "Plataforma para la busqueda de trabajo que uso para intentar posicionarme de mejor forma a fin de crecer profesionalmente",
+    description: t("socials.linkedin.description"),
     icon: "ri:linkedin-line",
     url: "https://www.linkedin.com/in/juan-castillo-181637277/",
   },
   {
     platform: "YouTube",
     username: "Juan Castillo",
-    description:
-      "Subo vídeos de utilidades, tutoriales y proyectos que he realizado durante mi vida universitaria",
+    description: t("socials.youtube.description"),
     icon: "ri:youtube-line",
     url: "https://www.youtube.com/@juanfranciscocastilloestre8389",
   },
   {
     platform: "Whatsapp",
     username: "Juan Francisco Castillo Estrella",
-    description: "Red de mensajeria directa con el dueño del portfolio",
+    description: t("socials.whatsapp.description"),
     icon: "bi-whatsapp",
-    url:  `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`,
+    url: `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`,
   },
   {
     platform: "Gmail",
-    username: "(juancastiestrella@gmail.com)",
-    description:
-      "Correo personal para que se puedan contactar en caso de alguna oferta o curiosidad",
+    username: "juancastiestrella@gmail.com",
+    description: t("socials.gmail.description"),
     icon: "bxl-gmail",
     url: "https://mail.google.com/mail/?view=cm&fs=1&to=juancastiestrella@gmail.com&su=Hola&body=Podemos%20contactarnos%20?",
   },
@@ -58,7 +55,7 @@ const reds = [
   <h2
     class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110"
   >
-    REDES
+    {t("contact.title")}
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
     {

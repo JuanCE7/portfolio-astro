@@ -1,0 +1,32 @@
+---
+import Layout from "@layouts/Layout.astro";
+import FloatingTriangles from "@components/FloatingTriangles.astro";
+import Header from "@components/Header.astro";
+import Projects from "@components/Projects.astro";
+import Red from "@components/Red.astro";
+import Bio from "@components/Bio.astro";
+import Footer from "@components/Footer.astro";
+import Hero from "@components/Hero.astro";
+import Technology from "@components/Technology.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "es" } }];
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title="Francisco Castillo - Portfolio">
+  <FloatingTriangles />
+  <Header t={t} />
+  <main class="container mx-auto px-6">
+    <Hero t={t} />
+    <Bio t={t} />
+    <Projects t={t} />
+    <Technology t={t} />
+    <Red t={t} />
+  </main>
+  <Footer t={t} />
+</Layout>

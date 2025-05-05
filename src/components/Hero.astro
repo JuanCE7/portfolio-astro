@@ -1,5 +1,6 @@
 ---
 import SocialLinks from "./SocialLinks.astro";
+const { t } = Astro.props;
 ---
 
 <section
@@ -18,7 +19,7 @@ import SocialLinks from "./SocialLinks.astro";
       download
       class="group relative inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-lg rounded-full overflow-hidden transition-all duration-300 hover:bg-white/20"
     >
-      <span class="relative z-10 font-medium"> Descargar CV </span>
+      <span class="relative z-10 font-medium"> {t('hero.cta.cv')}</span>
       <iconify-icon
         icon="ri:download-line"
         class="relative z-10 w-5 h-5 transition-transform duration-300 group-hover:translate-y-1"
