@@ -1,6 +1,5 @@
 ---
-const phoneNumber = "593987466394";
-const defaultMessage = "Hola, me gustaría contactar contigo";
+
 ---
 
 <nav class="fixed w-full backdrop-blur-sm z-50">
@@ -10,18 +9,21 @@ const defaultMessage = "Hola, me gustaría contactar contigo";
         <a href="/" class="flex items-center"> JUAN CASTILLO </a>
       </div>
       <div class="hidden md:flex items-center space-x-8">
-        <a href="#bio" class="hover:text-primary-500 transition-colors">Bio</a>
+        <a href="#bio" class="hover:text-primary-500 transition-colors"
+          >Sobre mi</a
+        >
+        <a href="#experience" class="hover:text-primary-500 transition-colors"
+          >Experiencia</a
+        >
         <a href="#projects" class="hover:text-primary-500 transition-colors"
           >Proyectos</a
         >
         <a href="#technology" class="hover:text-primary-500 transition-colors"
-          >Tecnologías</a
+          >Habilidades</a
         >
-        <a href="#red" class="hover:text-primary-500 transition-colors">Redes</a
-        >
-        
+
         <a
-          href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`}
+          href="#red"
           class="bg-white text-gradient-start px-4 py-2 rounded-full hover:bg-primary-500 hover:text-white transition-colors"
           >Contacto</a
         >
@@ -49,17 +51,20 @@ const defaultMessage = "Hola, me gustaría contactar contigo";
 
     <div id="mobile-menu" class="hidden md:hidden pb-6">
       <div class="flex flex-col space-y-4">
-        <a href="#bio" class="hover:text-primary-500 transition-colors">Bio</a>
+        <a href="#bio" class="hover:text-primary-500 transition-colors"
+          >Sobre mi</a
+        >
+        <a href="#experience" class="hover:text-primary-500 transition-colors"
+          >Experiencia</a
+        >
         <a href="#projects" class="hover:text-primary-500 transition-colors"
           >Proyectos</a
         >
         <a href="#technology" class="hover:text-primary-500 transition-colors"
-          >Tecnologías</a
+          >Habilidades</a
         >
-        <a href="#red" class="hover:text-primary-500 transition-colors">Redes</a
-        >        
         <a
-          href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`}
+          href="#red"
           class="bg-white text-gradient-start px-4 py-2 rounded-full hover:bg-primary-500 hover:text-white transition-colors"
           >Contacto</a
         >

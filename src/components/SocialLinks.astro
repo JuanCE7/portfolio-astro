@@ -1,9 +1,12 @@
 ---
+const phoneNumber = "593987466394";
+const defaultMessage = "Hola, me gustaría contactar contigo";
 const socialLinks = [
   { platform: 'instagram', url: 'https://www.instagram.com/juanito_rex01/', icon: 'ri:instagram-line' },
   { platform: 'github', url: 'https://github.com/JuanCE7', icon: 'ri:github-line' },
   { platform: 'youtube', url: 'https://www.youtube.com/@juanfranciscocastilloestre8389', icon: 'ri:youtube-line' },
   { platform: 'facebook', url: 'https://www.facebook.com/profile.php?id=100005613190882', icon: 'bi-facebook' },
+  { platform: 'whatsapp', url: `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`, icon: 'ri:whatsapp-line' },
   { platform: 'linkedin', url: 'https://www.linkedin.com/in/juan-castillo-181637277/', icon: 'ri:linkedin-line' },
 ];
 ---

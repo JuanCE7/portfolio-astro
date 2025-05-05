@@ -1,50 +1,125 @@
 ---
-import BioCard from "./BioCard.astro";
 
-const bios = [
-  {
-    imageUrl: "https://scontent.floh1-1.fna.fbcdn.net/v/t39.30808-6/464234379_2630585193805228_2415206655375647449_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=X5KT9bp_xyIQ7kNvwG_VxGV&_nc_oc=Adkar55ehsoYS-ngjvAuFMkMn2XRVq8E3QE1zuB4T6LFMfAxvwTxY0Q5CrplNVoQ0kQFnqJTGutE9aCGszVHItoR&_nc_zt=23&_nc_ht=scontent.floh1-1.fna&_nc_gid=r_uPsXn-79LLe7gb05kO8w&oh=00_AfHRerlPx4Kd8cgQB427QXXCNYNriwY27Z1sOCh1MVa2-w&oe=680B76A8",
-  },
-  {
-    title: "Juan Francisco Castillo Estrella",
-    description: "Entusiasta de la tecnología con una pasión arraigada por la programación y un profundo interés en el vasto campo de la Ingeniería, mi gusto en tecnologías backend y frontend me impulsa a explorar constantemente nuevas herramientas y metodologías en el desarrolo de software, estoy en busca de oportunidades que me permitan desarrolar mi intelecto y que representen un desafío. ",
-    className: "lg:col-span-2",
-  },
-  {
-    title: "Ingeniero en Ciencias de la Computación",
-    description: "Universidad Nacional de Loja",
-    imageUrl: "https://i.pinimg.com/736x/e6/1e/62/e61e6256e06c89d86d29b01091edb725.jpg",
-  },
-  {
-    title: "FreeLancer",
-    description: "Independiente",
-    imageUrl: "https://dt2sdf0db8zob.cloudfront.net/wp-content/uploads/2018/11/Why-it%E2%80%99s-Awesome-to-be-a-Freelancer-1.png",
-  },
-  {
-    title: "Experiencia",
-    description: "6 meses en el área de Desarrollo de la Cooperativa de Ahorro y Crédito Vicentina “Manuel Esteban Godoy Ortega” y 6 meses en área de Mantenimiento de Universidad Nacional de Loja",
-    imageUrl: "/exp.svg",
-  },
-];
 ---
 
 <section id="bio" class="py-20">
   <h2
     class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110"
-    >
-    BIO
+  >
+    SOBRE MI
   </h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {
-      bios.map((bio, index) => (
-        <BioCard
-          title={bio.title}
-          description={bio.description}
-          imageUrl={bio.imageUrl}
-          className={bio.className}
-          index={index}
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8" data-aos="zoom-out-down">
+    <div
+      class="bg-white/10 backdrop-blur-lg rounded-lg p-6 flex flex-col md:flex-row gap-4 items-center md:items-start lg:col-span-3 transition-transform hover:scale-105"
+    >
+      <div class="w-40 h-40 rounded-full overflow-hidden flex-shrink-0">
+        <img
+          src="https://scontent.floh1-1.fna.fbcdn.net/v/t39.30808-6/481130418_2732653710265042_6626118271277315197_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=MytzEbxx5ksQ7kNvwHry8Qs&_nc_oc=AdnJadRCpvKyaw3tpWm9UMCYSjFCd--Gqwu0YNzQRklZxHvsjqZXa2EGKZRubN_XLQ6vq6E5ZlrMOma2vomV8QuX&_nc_zt=23&_nc_ht=scontent.floh1-1.fna&_nc_gid=G-2kD3nIGagEaj16FRi08w&oh=00_AfGNSNX7PBaoIm3056OLpxelxV9n2LGXhcOntvf6_acnAw&oe=681EB550"
+          alt="Foto de perfil"
+          class="w-full h-full object-cover"
         />
-      ))
-    }
+      </div>
+      <div class="flex flex-col justify-center p-4 text-center md:text-left">
+        <h3 class="text-2xl font-semibold">Juan Francisco Castillo Estrella</h3>
+        <p class="text-white/70 mt-2">
+          Entusiasta de la tecnología con una pasión por la programación y un
+          profundo interés en el vasto campo de la Ingeniería. Mi gusto en
+          tecnologías backend y frontend me impulsa a explorar constantemente
+          nuevas herramientas y metodologías. Busco oportunidades que desafíen
+          mi intelecto y me permitan crecer profesionalmente.
+        </p>
+      </div>
+    </div>
+    <div
+      class="bg-white/10 backdrop-blur-lg rounded-lg p-6 flex flex-col gap-4 items-center text-center transition-transform hover:scale-105"
+    >
+      <div class="flex flex-col justify-center">
+        <h3 class="text-2xl font-semibold">Bachiller en Ciencias</h3>
+        <p class="text-white/70 mt-2">Sep 2013 - Jul 2019</p>
+      </div>
+      <div class="w-32 h-32 rounded-full overflow-hidden">
+        <img
+          src="https://www.unitips.mx/staticfiles/landing/images/promos/mesa_de_trabajo_1.png"
+          alt="Foto de perfil"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+    <div
+      class="bg-white/10 backdrop-blur-lg rounded-lg p-6 flex flex-col gap-4 items-center text-center transition-transform hover:scale-105"
+    >
+      <div class="flex flex-col justify-center">
+        <h3 class="text-2xl font-semibold">
+          Ingeniero en Ciencias de la Computación
+        </h3>
+        <p class="text-white/70 mt-2">May 2020 - Feb 2025</p>
+      </div>
+      <div class="w-32 h-32 rounded-full overflow-hidden">
+        <img
+          src="https://merida.anahuac.mx/hs-fs/hubfs/apreu/Blog/2019%20Blog%20APREU/APREU%20Blog%20-%20Abril%2019/dribbble-shot_6.gif?width=800&name=dribbble-shot_6.gif"
+          alt="Foto de perfil"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+    <div
+      class="bg-white/10 backdrop-blur-lg rounded-lg p-6 flex flex-col gap-4 items-center text-center transition-transform hover:scale-105"
+    >
+      <div class="flex flex-col justify-center">
+        <h3 class="text-2xl font-semibold">FreeLancer</h3>
+        <p class="text-white/70 mt-2">Oct 2024 - Act</p>
+      </div>
+      <div class="w-32 h-32 rounded-full overflow-hidden">
+        <img
+          src="https://i.gifer.com/39Cb.gif"
+          alt="Foto de perfil"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="py-20" data-aos="zoom-out-down">
+  <h2 class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110">EXPERIENCIA</h2>
+  <div class="space-y-8">
+    <div class="bg-white/10 backdrop-blur-lg rounded-lg p-6">
+      <h3 class="text-2xl font-semibold">Pasante en área de Tecnología</h3>
+      <p class="text-white/70">Coopmego • Apr 2024 - Oct 2024</p>
+      <ul class="mt-4 space-y-2 text-white/80">
+        <li>
+          • Diseño, organización y codificación de Servicios Web en framework .NET
+        </li>
+        <li>• Elaboración de Sp's en bases de datos como Postgres, Sybase, SQL Server. </li>
+        <li>• Diseño, organización, codificación de librerías y App web en React con Typescript, uso de Storybooks.</li>
+        <li>• Documentación de API's, Planes de Pruebas y Manuales de Usuario </li>
+      </ul>
+    </div>
+    <div class="bg-white/10 backdrop-blur-lg rounded-lg p-6">
+      <h3 class="text-2xl font-semibold">Pasante en Área de Mantenimiento</h3>
+      <p class="text-white/70">Universidad Nacional de Loja • Apr 2023 - Oct 2023</p>
+      <ul class="mt-4 space-y-2 text-white/80">
+        <li>
+          • Mantenimiento de dispositivos electrónicos, cambio de componentes y pruebas de rendimiento. 
+        </li>
+        <li>
+          • Configuración y particionamiento de sistemas operativos (Linux, Windows).
+        </li>
+        <li>• Instalación y enrutamiento de proyectores, impresoras y computadores. </li>
+      </ul>
+    </div>
+    <div class="bg-white/10 backdrop-blur-lg rounded-lg p-6">
+      <h3 class="text-2xl font-semibold">Desarrollador</h3>
+      <p class="text-white/70">Freelance • Oct 2024 - Presente</p>
+      <ul class="mt-4 space-y-2 text-white/80">
+        <li>
+          • Desarrollo de páginas web con HTML, JS, CSS; con frameworks como Next, Astro, Angular.  
+        </li>
+        <li>
+          • Desarrollo de aplicaciones de escritorio en Java con Java FX.
+        </li>
+        <li>• Uso de base de datos como MongoDB, Postgres, MySQL. </li>
+      </ul>
+    </div>
   </div>
 </section>

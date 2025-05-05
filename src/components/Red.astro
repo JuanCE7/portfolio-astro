@@ -1,6 +1,8 @@
 ---
 import SocialCard from "./SocialCard.astro";
 
+const phoneNumber = "593987466394";
+const defaultMessage = "Hola, me gustaría contactar contigo";
 const reds = [
   {
     platform: "Instagram",
@@ -35,11 +37,11 @@ const reds = [
     url: "https://www.youtube.com/@juanfranciscocastilloestre8389",
   },
   {
-    platform: "Facebook",
+    platform: "Whatsapp",
     username: "Juan Francisco Castillo Estrella",
-    description: "Red Social personal para conectar con la gente mas cercana",
-    icon: "bi-facebook",
-    url: "https://www.facebook.com/profile.php?id=100005613190882",
+    description: "Red de mensajeria directa con el dueño del portfolio",
+    icon: "bi-whatsapp",
+    url:  `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`,
   },
   {
     platform: "Gmail",

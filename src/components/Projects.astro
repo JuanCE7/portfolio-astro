@@ -3,20 +3,36 @@ import ProjectCard from "./ProjectCard.astro";
 
 const projects = [
   {
-    title: "TestCaseCraft",
+    title: "Test Case Craft",
     description:
-      "Proyecto enfocado en la Calidad del Software, el cual consiste en generar casos de prueba funcionales a partir de casos de uso mediante el uso de la Inteligencia Artificial",
-    imageUrl: "/testcasecraft.png",
+      "Proyecto enfocado en la Calidad del Software, el cual consiste en generar casos de prueba funcionales a partir de casos de uso mediante el uso de la Inteligencia Artificial, este se enfoca en una funcionalidad que genera N casos de prueba de acuerdo a un caso de uso ingresado, posee desde login, gestión de usuarios, hasta la creación de proyectos con sus debidos casos de uso y casos de prueba funcionales",
+    imageUrl: "/testcase.png",
     projectUrl: "https://testcasecraftunl.vercel.app/",
-    tags: ["Next.js", "Nest.js", "Postgres", "Prisma", "API Cohere", "Nodemailer"],
+    tags: ["Next.js", "Nest.js", "Postgres", "Prisma", "API Cohere", "Nodemailer", "Supabase", "Vercel"],
   },
   {
     title: "Castillo Clínica Dental",
     description:
-      "Proyecto elaborado para una Clínica dental, la que requería mostrar su escencia en una página web.",
+      "Proyecto elaborado para una Clínica dental, la que requería mostrar su escencia en una landing page, incluido a ello se establece conexión a servicios como envío de mensajes y una interfaz agradable con animaciones que agradan al usuario",
     imageUrl: "/dental.png",
     projectUrl: "https://castilloclinicadental.netlify.app/",
     tags: ["Astro", "Node.js", "Netlify", "Tailwind"],
+  },
+  {
+    title: "Sistema de Gestión de Ventas para Negocio",
+    description:
+      "Proyecto de universidad hecho en Java, que presenta una aplicación completa de gestión de ventas, donde se maneja el inventario, productos, facturas, usuarios, clientes, sesiones y diferentes roles",
+    imageUrl: "/market.png",
+    projectUrl: "https://www.youtube.com/watch?v=VBIS78X73vk",
+    tags: ["Java", "Java FX", "MariaDB", "XAMP"],
+  },
+  {
+    title: "MegOnline",
+    description:
+      "Proyecto de pasantías donde participé realizando storybooks, creando y probando componentes de interfaz de usuario de forma aislada, que luego se consumirían para la integración de componentes desde una librería propia de la Cooperativa; esto se desplegaba con ayuda de jenkins y se hacia el control de errores desde su interfaz gráfica; además, se realizó la documentación y backups de lo asignado",
+    imageUrl: "/megonline.png",
+    projectUrl: "https://megonline.coopmego.com/",
+    tags: ["StoryBooks", "React.js", "HTML", "CSS", "Node.js", "Jenkins"],
   },
   {
     title: "Mini Games",
@@ -27,17 +43,25 @@ const projects = [
     tags: ["Java", "Java FX", "MySQL", "MariaDB", "XAMP"],
   },
   {
-    title: "Sistema de Gestión de Ventas para Negocio",
+    title: "Gestiona App",
     description:
-      "Proyecto de universidad hecho en Java, que presenta una aplicación completa de gestión de ventas, donde se maneja el inventario, productos, facturas, usuarios, clientes, sesiones y diferentes roles",
-    imageUrl: "/market.png",
-    projectUrl: "https://www.youtube.com/watch?v=VBIS78X73vk",
-    tags: ["Java", "Java FX", "MariaDB", "XAMP"],
+      "Proyecto de pasantías donde participé realizando desde los Mocks hasta WS que se consumirían desde el front de la aplicación movil en la sección de cobranzas, esto desde el entorno de desarrollo, no participé en secciones de despliegue debido a mis permisos como pasante; además, se realizó la documentación y backups de lo asignado",
+    imageUrl: "/gestiona.png",
+    projectUrl: "https://play.google.com/store/apps/details?id=com.coopmego.gestiona",
+    tags: [".NET", "C#", "Javascript", "Sybase", "Postgres"],
+  },
+  {
+    title: "Club de Estudio de Programación Orientada a Objetos",
+    description:
+      "Proyecto de trabajo comunitario enfocado en dar clases a estudiantes de 2do Ciclo de la carrera de computación de Universidad Nacional de Loja, con una duración de 40 horas, enfocado en la temática de POO para que refuercen su conocimiento",
+    imageUrl: "/clubestudio.png",
+    projectUrl: "https://www.youtube.com/watch?v=It3ghVwjpsY&list=PLiULZndoCzyp3cwol7_RmkPOyAgMZ_0Cy&index=2",
+    tags: ["Java", "Java FX", "YouTube", "Juego", "SQL", "POO"],
   },
 ];
 ---
 
-<section id="projects" class="py-20">
+<section id="projects" class="py-20" data-aos="fade-up">
   <h2 class="text-3xl font-bold text-center mb-12">PROYECTOS</h2>
   <div class="flex flex-col gap-8">
     {
