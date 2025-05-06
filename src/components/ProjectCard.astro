@@ -1,16 +1,19 @@
 ---
+import { any } from "astro:schema";
+
 interface Props {
   title: string;
   description: string;
   imageUrl: string;
   projectUrl: string;
   tags?: string[];
+  t: any;
 }
 
-const { title, description, imageUrl, projectUrl, tags = [] } = Astro.props;
+const { title, description, imageUrl, projectUrl, tags = [], t } = Astro.props;
 ---
 
-<a 
+<a
   href={projectUrl}
   target="_blank"
   rel="noopener noreferrer"
@@ -18,27 +21,36 @@ const { title, description, imageUrl, projectUrl, tags = [] } = Astro.props;
 >
   <div class="md:flex">
     <div class="md:w-1/2">
-      <img 
-        src={imageUrl} 
-        alt={title} 
-        class="w-full h-64 md:h-full object-cover transition-transform duration-300 group-hover:scale-105" 
+      <img
+        src={imageUrl}
+        alt={title}
+        class="w-full h-64 md:h-full object-cover transition-transform duration-300 group-hover:scale-105"
       />
     </div>
     <div class="p-6 md:w-1/2 flex flex-col justify-between">
       <div>
-        <h3 class="text-2xl font-semibold mb-3 group-hover:text-primary-500 transition-colors">{title}</h3>
+        <h3
+          class="text-2xl font-semibold mb-3 group-hover:text-primary-500 transition-colors"
+        >
+          {title}
+        </h3>
         <p class="text-white/80 mb-4">{description}</p>
-        {tags.length > 0 && (
-          <div class="flex flex-wrap gap-2">
-            {tags.map(tag => (
-              <span class="bg-white/20 px-3 py-1 rounded-full text-sm">{tag}</span>
-            ))}
-          </div>
-        )}
+        {
+          tags.length > 0 && (
+            <div class="flex flex-wrap gap-2">
+              {tags.map((tag) => (
+                <span class="bg-white/20 px-3 py-1 rounded-full text-sm">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )
+        }
       </div>
       <div class="mt-4 flex items-center text-primary-500">
-        <span class="mr-2">Ver proyecto</span>
-        <iconify-icon icon="ri:arrow-right-line" width="20" height="20"></iconify-icon>
+        <span class="mr-2">{t("projects.see")}</span>
+        <iconify-icon icon="ri:arrow-right-line" width="20" height="20"
+        ></iconify-icon>
       </div>
     </div>
   </div>

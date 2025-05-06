@@ -77,7 +77,7 @@ export const ui = {
     "projects.club.title": "Object-Oriented Programming Study Club",
     "projects.club.description":
       "Community work project giving lessons to 2nd semester Computer Science students at the National University of Loja. It lasted 40 hours, focused on reinforcing OOP concepts.",
-
+    "projects.see": "See project",
     "skills.title": "SKILLS",
     "skills.level.advanced": "Advanced",
     "skills.level.intermediate": "Intermediate",
@@ -168,6 +168,7 @@ export const ui = {
       "Club de Estudio de Programación Orientada a Objetos",
     "projects.club.description":
       "Proyecto de trabajo comunitario enfocado en dar clases a estudiantes de 2do Ciclo de la carrera de computación de Universidad Nacional de Loja, con una duración de 40 horas, enfocado en la temática de POO para que refuercen su conocimiento.",
+    "projects.see": "Ver proyecto",
     "skills.title": "HABILIDADES",
     "skills.level.advanced": "Avanzado",
     "skills.level.intermediate": "Intermedio",
