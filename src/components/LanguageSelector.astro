@@ -5,16 +5,21 @@ const currentPath = Astro.url.pathname;
 
 <div class="relative inline-block text-left">
   <button
-    class="bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full w-full text-left hover:bg-white/20 transition-colors cursor-pointer"
+    class="bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full w-full text-left hover:bg-white/20 transition-colors cursor-pointer flex items-center gap-2"
     onclick="document.getElementById('lang-select').classList.toggle('hidden')"
   >
-    <span>🌐 Idioma: </span>
-    {languages[currentPath.split('/')[1]] || 'Seleccionar idioma'}
+    <!-- Icono visible siempre -->
+    <span>🌐</span>
+
+    <!-- Texto solo visible en pantallas medianas en adelante -->
+    <span class="hidden md:inline">
+      Idioma: {languages[currentPath.split('/')[1]] || 'Seleccionar idioma'}
+    </span>
   </button>
 
   <div
     id="lang-select"
-    class="absolute mt-2 w-full bg-white/10 backdrop-blur-sm rounded-lg shadow-lg hidden"
+    class="absolute mt-2 w-full bg-white/10 backdrop-blur-sm rounded-lg shadow-lg hidden z-10"
   >
     <div class="flex flex-col">
       {
@@ -22,7 +27,6 @@ const currentPath = Astro.url.pathname;
           <a
             href={`/${lang}/`}
             class="px-4 py-2 text-white hover:bg-white/20 transition-colors"
-            onClick="window.location.pathname = this.href"
           >
             {label}
           </a>
