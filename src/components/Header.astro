@@ -7,27 +7,53 @@ const { t } = Astro.props;
 <nav class="fixed w-full backdrop-blur-sm z-50">
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between h-28">
-      <div class="text-2xl font-bold">
+      <div class="text-2xl font-bold hidden md:inline">
         <a href="/" class="flex items-center"> JUAN CASTILLO </a>
       </div>
       <div class="hidden md:flex items-center space-x-8">
-        <a href="#bio" class="hover:text-primary-500 transition-colors"
-          >{t("nav.about")}</a
+        <a
+          href="#bio"
+          class="flex items-center gap-2 hover:text-primary-500 transition-colors"
         >
-        <a href="#experience" class="hover:text-primary-500 transition-colors"
-          >{t("nav.experience")}</a
+          <iconify-icon icon="bi-person-fill-exclamation" width="24" height="24"
+          ></iconify-icon>
+          <span class="hidden lg:inline">{t("nav.about")}</span>
+        </a>
+        <a
+          href="#experience"
+          class="flex items-center gap-2 hover:text-primary-500 transition-colors"
         >
-        <a href="#projects" class="hover:text-primary-500 transition-colors"
-          >{t("nav.projects")}</a
+          <iconify-icon icon="ri-medal-line" width="24" height="24"
+          ></iconify-icon>
+          <span class="hidden lg:inline">{t("nav.experience")}</span>
+        </a>
+        <a
+          href="#projects"
+          class="flex items-center gap-2 hover:text-primary-500 transition-colors"
         >
-        <a href="#technology" class="hover:text-primary-500 transition-colors"
-          >{t("nav.skills")}</a
+          <iconify-icon icon="carbon-ibm-cloud-projects" width="24" height="24"
+          ></iconify-icon>
+          <span class="hidden lg:inline">{t("nav.projects")}</span>
+        </a>
+        <a
+          href="#technology"
+          class="flex items-center gap-2 hover:text-primary-500 transition-colors"
         >
-        <a href="#red" class="hover:text-primary-500 transition-colors"
-          >{t("nav.contact")}</a
+          <iconify-icon
+            icon="carbon-skill-level-intermediate"
+            width="24"
+            height="24"></iconify-icon>
+          <span class="hidden lg:inline">{t("nav.skills")}</span>
+        </a>
+        <a
+          href="#red"
+          class="flex items-center gap-2 hover:text-primary-500 transition-colors"
         >
+          <iconify-icon icon="bxs-contact" width="24" height="24"
+          ></iconify-icon>
+          <span class="hidden lg:inline">{t("nav.contact")}</span>
+        </a>
       </div>
-
       <button
         id="mobile-menu-button"
         class="md:hidden text-white"
@@ -48,27 +74,50 @@ const { t } = Astro.props;
         </svg>
       </button>
       <LanguageSelector />
-
     </div>
 
     <div id="mobile-menu" class="hidden md:hidden pb-6">
       <div class="flex flex-col space-y-4">
-        <a href="#bio" class="hover:text-primary-500 transition-colors"
-          >{t("nav.about")}</a
+        <a
+          href="#bio"
+          class="flex items-center gap-2 hover:text-primary-500 transition-colors"
         >
-        <a href="#experience" class="hover:text-primary-500 transition-colors"
-          >{t("nav.experience")}</a
+          <iconify-icon icon="bi-person-fill-exclamation" width="24" height="24"
+          ></iconify-icon>
+          <span>{t("nav.about")}</span>
+        </a>
+        <a
+          href="#experience"
+          class="flex items-center gap-2 hover:text-primary-500 transition-colors"
         >
-        <a href="#projects" class="hover:text-primary-500 transition-colors"
-          >{t("nav.projects")}</a
+          <iconify-icon icon="ri-medal-line" width="24" height="24"
+          ></iconify-icon>
+          <span>{t("nav.experience")}</span>
+        </a>
+        <a
+          href="#projects"
+          class="flex items-center gap-2 hover:text-primary-500 transition-colors"
         >
-        <a href="#technology" class="hover:text-primary-500 transition-colors"
-          >{t("nav.skills")}</a
+          <iconify-icon icon="carbon-ibm-cloud-projects" width="24" height="24"
+          ></iconify-icon>
+          <span>{t("nav.projects")}</span>
+        </a>
+        <a
+          href="#technology"
+          class="flex items-center gap-2 hover:text-primary-500 transition-colors"
         >
+          <iconify-icon
+            icon="carbon-skill-level-intermediate"
+            width="24"
+            height="24"></iconify-icon>
+          <span>{t("nav.skills")}</span>
+        </a>
         <a
           href="#red"
-          class="bg-white text-gradient-start px-4 py-2 rounded-full hover:bg-primary-500 hover:text-white transition-colors"
-          >{t("nav.contact")}</a
+          class="flex items-center gap-2 bg-white text-gradient-start px-4 py-2 rounded-full hover:bg-primary-500 hover:text-white transition-colors"
+          ><iconify-icon icon="bxs-contact" width="24" height="24"
+          ></iconify-icon>
+          <span>{t("nav.contact")}</span></a
         >
       </div>
     </div>
