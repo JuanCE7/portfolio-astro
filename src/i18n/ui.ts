@@ -14,6 +14,7 @@ export const ui = {
     "nav.contact": "Contact",
     "hero.cta.cv": "Download CV",
     "about.title": "ABOUT ME",
+    "about.title2": ["Computer Science Engineer", "Full Stack Developer", "Tech Enthusiast"],
     "about.description":
       "Technology enthusiast with a passion for programming and a deep interest in the vast field of Engineering. My taste in backend and frontend technologies drives me to constantly explore new tools and methodologies. I seek opportunities that challenge my intellect and allow me to grow professionally.",
     "about.gradeOne": "Bachelor of Science",
@@ -104,6 +105,7 @@ export const ui = {
     "nav.contact": "Contacto",
     "hero.cta.cv": "Descargar CV",
     "about.title": "SOBRE MÍ",
+    "about.title2": ["Ingeniero en Ciencias de la Computación", "Desarrollador Full Stack", "Entusiasta de la tecnología"],
     "about.description":
       "Entusiasta de la tecnología con una pasión por la programación y un profundo interés en el vasto campo de la Ingeniería. Mi gusto en      tecnologías backend y frontend me impulsa a explorar constantemente nuevas herramientas y metodologías. Busco oportunidades que desafíen mi intelecto y me permitan crecer profesionalmente.",
     "about.gradeOne": "Bachiller en Ciencias",
