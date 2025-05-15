@@ -58,6 +58,9 @@ export const ui = {
     "projects.dental.title": "Castillo Dental Clinic",
     "projects.dental.description":
       "Project made for a dental clinic that required a landing page to showcase its essence, including service connection like message sending and an appealing UI with user-friendly animations.",
+    "projects.angular.title": "Angular CRUD",
+    "projects.angular.description":
+      "Project created to recreate the 4 CRUD operations in Angular.",
 
     "projects.sales.title": "Sales Management System for Business",
     "projects.sales.description":
@@ -149,6 +152,9 @@ export const ui = {
     "projects.dental.title": "Castillo Clínica Dental",
     "projects.dental.description":
       "Proyecto elaborado para una Clínica dental, la que requería mostrar su escencia en una landing page, incluido a ello se establece conexión a servicios como envío de mensajes y una interfaz agradable con animaciones que agradan al usuario.",
+    "projects.angular.title": "Angular CRUD",
+    "projects.angular.description":
+      "Proyecto elaborado para recrear las 4 operaciones CRUD en Angular.",
 
     "projects.sales.title": "Sistema de Gestión de Ventas para Negocio",
     "projects.sales.description":
