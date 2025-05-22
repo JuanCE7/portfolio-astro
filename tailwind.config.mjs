@@ -5,15 +5,15 @@ export default {
     extend: {
       colors: {
         primary: {
-          900: "#800000", // Dark red
+          900: "#530808", // Dark red
           800: "#9a0000",
-          700: "#b40000",
-          600: "#ce0000",
-          500: "#e80000",
+          700: "#d4cabe",
+          600: "#53081",
+          500: "#fff",
         },
         gradient: {
-          start: "#800000",
-          end: "#000080",
+          start: "#bf9f72",
+          end: "#b05819",
         },
       },
       fontFamily: {
