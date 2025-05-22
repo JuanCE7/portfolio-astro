@@ -13,6 +13,7 @@ export const ui = {
     "nav.skills": "Skills",
     "nav.contact": "Contact",
     "hero.cta.cv": "Download CV",
+    "hero.cta.projects": "See Projects",
     "about.title": "ABOUT ME",
     "about.title2": ["Computer Science Engineer", "Full Stack Developer", "Tech Enthusiast"],
     "about.description":
@@ -107,6 +108,7 @@ export const ui = {
     "nav.skills": "Habilidades",
     "nav.contact": "Contacto",
     "hero.cta.cv": "Descargar CV",
+    "hero.cta.projects": "Ver Proyectos",
     "about.title": "SOBRE MÍ",
     "about.title2": ["Ingeniero en Ciencias de la Computación", "Desarrollador Full Stack", "Entusiasta de la tecnología"],
     "about.description":

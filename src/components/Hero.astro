@@ -7,40 +7,116 @@ const { t } = Astro.props;
   id="hero"
   class="min-h-screen flex flex-col items-center justify-center text-center"
 >
-  <img
-    src="/logo.svg"
-    alt="Francisco Castillo Logo"
-    class="w-96 h-96 mb-8 transition-transform hover:scale-105 hover:cursor-move"
-  />
+  <div id="logo-wrapper" class="relative w-96 h-96 mb-8 cursor-pointer">
+    <img
+      id="logo"
+      src="/logo.svg"
+      alt="Francisco Castillo Logo"
+      class="absolute inset-0 w-full h-full object-contain transition-opacity duration-300"
+    />
+    <img
+      id="logo-hover"
+      src="/logo-1.svg"
+      alt="Francisco Castillo Logo Alt"
+      class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300"
+    />
+  </div>
   <div class="flex flex-col items-center gap-6">
     <SocialLinks />
-    <h2 class="text-2xl text-primary-500 hidden md:inline"><span id="typed" data-strings={JSON.stringify(t('about.title2'))}></span></h2>
-    <a
-      href="/CVJuanFCastilloE.pdf"
-      download
-      class="group relative inline-flex items-center gap-2 px-8 py-4 bg-primary-900 backdrop-blur-lg rounded-full overflow-hidden transition-all duration-300 hover:bg-primary-500 hover:text-primary-900"
-    >
-      <span class="relative z-10 font-medium"> {t("hero.cta.cv")}</span>
-      <iconify-icon
-        icon="ri:download-line"
-        class="relative z-10 w-5 h-5 transition-transform duration-300 group-hover:translate-y-1"
+    <h2 class="text-2xl text-primary-500 hidden md:inline">
+      <span id="typed" data-strings={JSON.stringify(t("about.title2"))}></span>
+    </h2>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        href="#projects"
+        class="group relative inline-flex items-center gap-2 px-8 py-4 bg-primary-900 backdrop-blur-lg rounded-full overflow-hidden transition-all duration-300 hover:bg-primary-500 hover:text-primary-900"
+        data-aos="fade-right"
       >
-      </iconify-icon>
-    </a>
+        <span class="relative z-10 font-medium"> {t("hero.cta.projects")}</span>
+        <iconify-icon
+          icon="carbon-ibm-cloud-projects"
+          class="relative z-10 w-5 h-5 transition-transform duration-300 group-hover:translate-y-1"
+        >
+        </iconify-icon>
+      </a>
+      <a
+        href="/CVJuanFCastilloE.pdf"
+        download
+        class="group relative inline-flex items-center gap-2 px-8 py-4 bg-primary-500 text-primary-900 backdrop-blur-lg rounded-full overflow-hidden transition-all duration-300 hover:bg-primary-900 hover:text-primary-500"
+        data-aos="fade-left"
+      >
+        <span class="relative z-10 font-medium"> {t("hero.cta.cv")}</span>
+        <iconify-icon
+          icon="ri:download-line"
+          class="relative z-10 w-5 h-5 transition-transform duration-300 group-hover:translate-y-1"
+        >
+        </iconify-icon>
+      </a>
+    </div>
   </div>
 </section>
+
 <script>
-  import Typed from 'typed.js';
-  
+  import Typed from "typed.js";
+
   // Initialize Typed.js
-  const typedElement = document.querySelector('#typed') as HTMLElement;
-  const strings = JSON.parse(typedElement?.dataset.strings || '[]');
-  
-  new Typed('#typed', {
+  const typedElement = document.querySelector("#typed") as HTMLElement;
+  const strings = JSON.parse(typedElement?.dataset.strings || "[]");
+
+  new Typed("#typed", {
     strings,
     typeSpeed: 50,
     backSpeed: 50,
     backDelay: 2000,
-    loop: true
+    loop: true,
+  });
+
+  const wrapper = document.getElementById("logo-wrapper");
+  const logo = document.getElementById("logo");
+  const logoHover = document.getElementById("logo-hover");
+
+  wrapper.addEventListener("mouseenter", () => {
+    wrapper.classList.remove("rotate-out");
+    wrapper.classList.add("rotate-in");
+
+    // Al inicio del giro, comienza transición de imagen
+    logo.style.opacity = "0";
+    logoHover.style.opacity = "1";
+  });
+
+  wrapper.addEventListener("mouseleave", () => {
+    wrapper.classList.remove("rotate-in");
+    wrapper.classList.add("rotate-out");
+
+    // Al inicio del giro hacia atrás, vuelve la imagen original
+    logo.style.opacity = "1";
+    logoHover.style.opacity = "0";
   });
 </script>
+<style>
+  @keyframes spin360 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spinBack {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+
+  .rotate-in {
+    animation: spin360 0.5s ease-in-out forwards;
+  }
+
+  .rotate-out {
+    animation: spinBack 0.5s ease-in-out forwards;
+  }
+</style>
