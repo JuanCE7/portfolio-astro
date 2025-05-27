@@ -15,9 +15,13 @@ export const ui = {
     "hero.cta.cv": "Download CV",
     "hero.cta.projects": "See Projects",
     "about.title": "ABOUT ME",
-    "about.title2": ["Computer Science Engineer", "Full Stack Developer", "Tech Enthusiast"],
+    "about.title2": [
+      "Computer Science Engineer",
+      "Full Stack Developer",
+      "Tech Enthusiast",
+    ],
     "about.description":
-      "Technology enthusiast with a passion for programming and a deep interest in the vast field of Engineering. My taste in backend and frontend technologies drives me to constantly explore new tools and methodologies. I seek opportunities that challenge my intellect and allow me to grow professionally.",
+      "I am a software developer with experience in backend and frontend technologies, specialized in creating efficient and scalable solutions. My focus is on continuous improvement and implementation of modern development practices. I am looking for opportunities that allow me to apply my knowledge and contribute to the growth of innovative projects.",
     "about.gradeOne": "Bachelor of Science",
     "about.gradeTwo": "Computer Science Engineer",
     "about.gradeThree": "Freelancer",
@@ -110,9 +114,13 @@ export const ui = {
     "hero.cta.cv": "Descargar CV",
     "hero.cta.projects": "Ver Proyectos",
     "about.title": "SOBRE MÍ",
-    "about.title2": ["Ingeniero en Ciencias de la Computación", "Desarrollador Full Stack", "Entusiasta de la tecnología"],
+    "about.title2": [
+      "Ingeniero en Ciencias de la Computación",
+      "Desarrollador Full Stack",
+      "Entusiasta de la tecnología",
+    ],
     "about.description":
-      "Entusiasta de la tecnología con una pasión por la programación y un profundo interés en el vasto campo de la Ingeniería. Mi gusto en      tecnologías backend y frontend me impulsa a explorar constantemente nuevas herramientas y metodologías. Busco oportunidades que desafíen mi intelecto y me permitan crecer profesionalmente.",
+      "Soy un desarrollador de software con experiencia en tecnologías backend y frontend, especializado en la creación de soluciones eficientes y escalables. Mi enfoque se centra en la mejora continua y la implementación de prácticas de desarrollo modernas. Busco oportunidades que me permitan aplicar mis conocimientos y contribuir al crecimiento de proyectos innovadores.",
     "about.gradeOne": "Bachiller en Ciencias",
     "about.gradeTwo": "Ingeniero en Ciencias de la Computación",
     "about.gradeThree": "Autónomo",
