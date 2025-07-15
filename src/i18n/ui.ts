@@ -60,6 +60,9 @@ export const ui = {
     "projects.testcase.description":
       "Project focused on Software Quality, which generates functional test cases from use cases using Artificial Intelligence. It includes login, user management, and project creation with their respective use cases and test cases.",
 
+    "projects.laberintos.title": "Laberintos",
+    "projects.laberintos.description":
+      "Project that generates X number of mazes and allows you to play in the generated maze until you reach the end. It is played with the WASD keys.",
     "projects.dental.title": "Castillo Dental Clinic",
     "projects.dental.description":
       "Project made for a dental clinic that required a landing page to showcase its essence, including service connection like message sending and an appealing UI with user-friendly animations.",
@@ -159,6 +162,9 @@ export const ui = {
     "projects.testcase.description":
       "Proyecto enfocado en la Calidad del Software, el cual consiste en generar casos de prueba funcionales a partir de casos de uso mediante el uso de la Inteligencia Artificial, este se enfoca en una funcionalidad que genera N casos de prueba de acuerdo a un caso de uso ingresado, posee desde login, gestión de usuarios, hasta la creación de proyectos con sus debidos casos de uso y casos de prueba funcionales.",
 
+    "projects.laberintos.title": "Laberintos",
+    "projects.laberintos.description":
+      "Proyecto enfocado en generar un numero X de laberintos y poder jugar en el laberinto generado hasta intentar llegar a la meta, se juega con las teclas WASD.",
     "projects.dental.title": "Castillo Clínica Dental",
     "projects.dental.description":
       "Proyecto elaborado para una Clínica dental, la que requería mostrar su escencia en una landing page, incluido a ello se establece conexión a servicios como envío de mensajes y una interfaz agradable con animaciones que agradan al usuario.",
