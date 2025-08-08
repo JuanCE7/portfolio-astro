@@ -73,6 +73,9 @@ export const ui = {
     "projects.sales.title": "Sales Management System for Business",
     "projects.sales.description":
       "University project made in Java, featuring a full sales management application handling inventory, products, invoices, users, clients, sessions, and different roles.",
+    "projects.literature.title": "Literature Project",
+    "projects.literature.description":
+      "University project made in Java, featuring a full sales management application handling inventory, products, invoices, users, clients, sessions, and different roles.",
 
     "projects.megonline.title": "MegOnline",
     "projects.megonline.description":
@@ -175,7 +178,8 @@ export const ui = {
     "projects.sales.title": "Sistema de Gestión de Ventas para Negocio",
     "projects.sales.description":
       "Proyecto de universidad hecho en Java, que presenta una aplicación completa de gestión de ventas, donde se maneja el inventario, productos, facturas, usuarios, clientes, sesiones y diferentes roles.",
-
+    "projects.literature.title": "Proyecto de Literatura",
+    "projects.literature.description": "Un proyecto para un curso de literatura de la Universidad Nacional de Loja. Para exponer temas sobre literatura latinoamericana.",
     "projects.megonline.title": "MegOnline",
     "projects.megonline.description":
       "Proyecto de pasantías donde participé realizando storybooks, creando y probando componentes de interfaz de usuario de forma aislada, que luego se consumirían para la integración de componentes desde una librería propia de la Cooperativa; esto se desplegaba con ayuda de jenkins y se hacía el control de errores desde su interfaz gráfica; además, se realizó la documentación y backups de lo asignado.",
