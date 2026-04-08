@@ -1,73 +1,80 @@
 ---
-import SocialCard from "./SocialCard.astro";
+const { t } = Astro.props;
 
 const phoneNumber = "593987466394";
 const defaultMessage = "Hola, me gustaría contactar contigo";
-const { t } = Astro.props;
 
-const reds = [
+const links = [
   {
-    platform: "Instagram",
-    username: "juanito_rex01",
-    description: t("socials.instagram.description"),
-    icon: "ri:instagram-line",
-    url: "https://www.instagram.com/juanito_rex01/",
-  },
-  {
-    platform: "GitHub",
-    username: "JuanCE7",
-    description: t("socials.github.description"),
-    icon: "ri:github-line",
-    url: "https://github.com/JuanCE7",
-  },
-  {
-    platform: "LinkedIn",
-    username: "Juan Castillo",
-    description: t("socials.linkedin.description"),
-    icon: "ri:linkedin-line",
+    label: "LinkedIn",
     url: "https://www.linkedin.com/in/juan-castillo-181637277/",
   },
   {
-    platform: "YouTube",
-    username: "Juan Castillo",
-    description: t("socials.youtube.description"),
-    icon: "ri:youtube-line",
-    url: "https://www.youtube.com/@juanfranciscocastilloestre8389",
+    label: "GitHub",
+    url: "https://github.com/JuanCE7",
   },
   {
-    platform: "Whatsapp",
-    username: "Juan Francisco Castillo Estrella",
-    description: t("socials.whatsapp.description"),
-    icon: "bi-whatsapp",
+    label: "WhatsApp",
     url: `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`,
-  },
-  {
-    platform: "Gmail",
-    username: "juancastiestrella@gmail.com",
-    description: t("socials.gmail.description"),
-    icon: "bxl-gmail",
-    url: "https://mail.google.com/mail/?view=cm&fs=1&to=juancastiestrella@gmail.com&su=Hola&body=Podemos%20contactarnos%20?",
   },
 ];
 ---
 
-<section id="red" class="py-20" data-aos="zoom-out-down">
-  <h2
-    class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110"
-  >
-    {t("contact.title")}
-  </h2>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 ">
-    {
-      reds.map((red) => (
-        <SocialCard
-          platform={red.platform}
-          username={red.username}
-          description={red.description}
-          icon={red.icon}
-          url={red.url}
-        />
-      ))
-    }
+<section id="red" class="py-20 section-fade">
+  <p class="font-mono text-xs text-ink-400 dark:text-neutral-500 tracking-widest uppercase mb-10">{t("contact.title")}</p>
+
+  <div class="max-w-lg">
+    <h2 class="text-3xl sm:text-4xl font-bold text-ink-900 dark:text-neutral-100 leading-tight mb-4">
+      {t("contact.cta.title")}
+    </h2>
+    <p class="text-ink-700 dark:text-neutral-400 mb-8 leading-relaxed">
+      {t("contact.cta.body")}
+    </p>
+
+    <!-- Primary CTA -->
+    <a
+      href="mailto:juancastiestrella@gmail.com"
+      class="inline-flex items-center gap-2 px-6 py-3 bg-accent dark:bg-accent-dark text-white rounded-lg font-medium text-sm hover:opacity-90 transition-opacity mb-8"
+    >
+      juancastiestrella@gmail.com
+      <span aria-hidden="true">→</span>
+    </a>
+
+    <!-- Secondary links -->
+    <div class="flex flex-wrap gap-4">
+      {links.map(link => (
+        <a
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-mono text-sm text-ink-400 dark:text-neutral-500 hover:text-accent dark:hover:text-accent-dark transition-colors underline underline-offset-4"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
   </div>
 </section>
+
+<style>
+  .section-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .section-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function initSectionFade() {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll('.section-fade').forEach(el => observer.observe(el));
+  }
+  document.addEventListener('astro:page-load', initSectionFade);
+</script>

@@ -2,120 +2,94 @@
 const { t } = Astro.props;
 ---
 
-<section id="bio" class="py-20">
-  <h2
-    class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110"
-  >
-    {t("about.title")}
-  </h2>
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8" data-aos="zoom-out-down">
-    <div
-      class="bg-white/10 backdrop-blur-lg rounded-lg p-6 flex flex-col md:flex-row gap-4 items-center md:items-start lg:col-span-3 transition-transform hover:scale-105"
-    >
-      <div class="w-40 h-40 rounded-full overflow-hidden flex-shrink-0">
-        <img
-          src="/perfil.jpg"
-          alt="FotoPerfil"
-          class="w-full h-full object-cover"
-        />
-      </div>
-      <div class="flex flex-col justify-center p-4 text-center md:text-left ">
-        <h3 class="text-2xl font-semibold ">Juan Francisco Castillo Estrella</h3>
-        <p class="text-white/70 mt-2">
-          {t("about.description")}
-        </p>
-      </div>
-    </div>
-    <div
-      class="bg-white/10 backdrop-blur-lg rounded-lg p-6 flex flex-col gap-4 items-center text-center transition-transform hover:scale-105"
-    >
-      <div class="flex flex-col justify-center">
-        <h3 class="text-2xl font-semibold">{t("about.gradeOne")}</h3>
-        <p class="text-white/70 mt-2">Sep 2013 - Jul 2019</p>
-      </div>
-      <div class="w-32 h-32 rounded-full overflow-hidden">
-        <img
-          src="https://www.unitips.mx/staticfiles/landing/images/promos/mesa_de_trabajo_1.png"
-          alt="bachillerato"
-          class="w-full h-full object-cover"
-        />
-      </div>
-    </div>
-    <div
-      class="bg-white/10 backdrop-blur-lg rounded-lg p-6 flex flex-col gap-4 items-center text-center transition-transform hover:scale-105"
-    >
-      <div class="flex flex-col justify-center">
-        <h3 class="text-2xl font-semibold">
-          {t("about.gradeTwo")}
-        </h3>
-        <p class="text-white/70 mt-2">May 2020 - Feb 2025</p>
-      </div>
-      <div class="w-32 h-32 rounded-full overflow-hidden">
-        <img
-          src="https://merida.anahuac.mx/hs-fs/hubfs/apreu/Blog/2019%20Blog%20APREU/APREU%20Blog%20-%20Abril%2019/dribbble-shot_6.gif?width=800&name=dribbble-shot_6.gif"
-          alt="grado"
-          class="w-full h-full object-cover"
-        />
-      </div>
-    </div>
-    <div
-      class="bg-white/10 backdrop-blur-lg rounded-lg p-6 flex flex-col gap-4 items-center text-center transition-transform hover:scale-105"
-    >
-      <div class="flex flex-col justify-center">
-        <h3 class="text-2xl font-semibold">{t("about.gradeThree")}</h3>
-        <p class="text-white/70 mt-2">Oct 2024 - Act</p>
-      </div>
-      <div class="w-32 h-32 rounded-full overflow-hidden">
-        <img
-          src="https://i.gifer.com/39Cb.gif"
-          alt="freelance"
-          class="w-full h-full object-cover"
-        />
-      </div>
+<!-- About -->
+<section id="bio" class="py-20 section-fade">
+  <p class="font-mono text-xs text-ink-400 dark:text-neutral-500 tracking-widest uppercase mb-8">{t("about.title")}</p>
+
+  <div class="flex flex-col sm:flex-row gap-8 items-start">
+    <img
+      src="/perfil.jpg"
+      alt="Juan Francisco Castillo"
+      class="w-28 h-36 object-cover grayscale rounded-md flex-shrink-0"
+    />
+    <div>
+      <h2 class="text-xl font-semibold text-ink-900 dark:text-neutral-100 mb-3">
+        Juan Francisco Castillo Estrella
+      </h2>
+      <p class="text-ink-700 dark:text-neutral-400 leading-relaxed">
+        {t("about.description")}
+      </p>
     </div>
   </div>
 </section>
 
-<section id="experience" class="py-20" data-aos="zoom-out-down">
-  <h2
-    class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110"
-  >
-    {t("experience.title")}
-  </h2>
+<hr class="border-surface-300 dark:border-neutral-800" />
 
-  <div class="space-y-8">
+<!-- Experience -->
+<section id="experience" class="py-20 section-fade">
+  <p class="font-mono text-xs text-ink-400 dark:text-neutral-500 tracking-widest uppercase mb-10">{t("experience.title")}</p>
+
+  <div class="border-l-2 border-surface-300 dark:border-neutral-800 pl-6 space-y-10">
+    <!-- Freelance -->
+    <div class="relative">
+      <span class="absolute -left-[1.5625rem] top-1 w-3 h-3 rounded-full bg-accent dark:bg-accent-dark ring-4 ring-surface-100 dark:ring-neutral-950"></span>
+      <p class="font-mono text-xs text-ink-400 dark:text-neutral-500 mb-1">{t("experience.freelance.company")}</p>
+      <h3 class="text-base font-semibold text-ink-900 dark:text-neutral-100 mb-2">{t("experience.freelance.role")}</h3>
+      <ul class="space-y-1 text-sm text-ink-700 dark:text-neutral-400">
+        <li>{t("experience.freelance.task1")}</li>
+        <li>{t("experience.freelance.task2")}</li>
+        <li>{t("experience.freelance.task3")}</li>
+      </ul>
+    </div>
+
     <!-- Coopmego -->
-    <div class="bg-white/10 backdrop-blur-lg rounded-lg p-6">
-      <h3 class="text-2xl font-semibold">{t("experience.coopmego.role")}</h3>
-      <p class="text-white/70">{t("experience.coopmego.company")}</p>
-      <ul class="mt-4 space-y-2 text-white/80">
-        <li>• {t("experience.coopmego.task1")}</li>
-        <li>• {t("experience.coopmego.task2")}</li>
-        <li>• {t("experience.coopmego.task3")}</li>
-        <li>• {t("experience.coopmego.task4")}</li>
+    <div class="relative">
+      <span class="absolute -left-[1.5625rem] top-1 w-3 h-3 rounded-full bg-surface-300 dark:bg-neutral-700 ring-4 ring-surface-100 dark:ring-neutral-950"></span>
+      <p class="font-mono text-xs text-ink-400 dark:text-neutral-500 mb-1">{t("experience.coopmego.company")}</p>
+      <h3 class="text-base font-semibold text-ink-900 dark:text-neutral-100 mb-2">{t("experience.coopmego.role")}</h3>
+      <ul class="space-y-1 text-sm text-ink-700 dark:text-neutral-400">
+        <li>{t("experience.coopmego.task1")}</li>
+        <li>{t("experience.coopmego.task2")}</li>
+        <li>{t("experience.coopmego.task3")}</li>
+        <li>{t("experience.coopmego.task4")}</li>
       </ul>
     </div>
 
     <!-- UNL -->
-    <div class="bg-white/10 backdrop-blur-lg rounded-lg p-6">
-      <h3 class="text-2xl font-semibold">{t("experience.unl.role")}</h3>
-      <p class="text-white/70">{t("experience.unl.company")}</p>
-      <ul class="mt-4 space-y-2 text-white/80">
-        <li>• {t("experience.unl.task1")}</li>
-        <li>• {t("experience.unl.task2")}</li>
-        <li>• {t("experience.unl.task3")}</li>
-      </ul>
-    </div>
-
-    <!-- Freelance -->
-    <div class="bg-white/10 backdrop-blur-lg rounded-lg p-6">
-      <h3 class="text-2xl font-semibold">{t("experience.freelance.role")}</h3>
-      <p class="text-white/70">{t("experience.freelance.company")}</p>
-      <ul class="mt-4 space-y-2 text-white/80">
-        <li>• {t("experience.freelance.task1")}</li>
-        <li>• {t("experience.freelance.task2")}</li>
-        <li>• {t("experience.freelance.task3")}</li>
+    <div class="relative">
+      <span class="absolute -left-[1.5625rem] top-1 w-3 h-3 rounded-full bg-surface-300 dark:bg-neutral-700 ring-4 ring-surface-100 dark:ring-neutral-950"></span>
+      <p class="font-mono text-xs text-ink-400 dark:text-neutral-500 mb-1">{t("experience.unl.company")}</p>
+      <h3 class="text-base font-semibold text-ink-900 dark:text-neutral-100 mb-2">{t("experience.unl.role")}</h3>
+      <ul class="space-y-1 text-sm text-ink-700 dark:text-neutral-400">
+        <li>{t("experience.unl.task1")}</li>
+        <li>{t("experience.unl.task2")}</li>
+        <li>{t("experience.unl.task3")}</li>
       </ul>
     </div>
   </div>
 </section>
+
+<hr class="border-surface-300 dark:border-neutral-800" />
+
+<style>
+  .section-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .section-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function initSectionFade() {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll('.section-fade').forEach(el => observer.observe(el));
+  }
+  document.addEventListener('astro:page-load', initSectionFade);
+</script>

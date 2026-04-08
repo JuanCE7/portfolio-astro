@@ -4,6 +4,7 @@ const { t } = Astro.props;
 
 const projects = [
   {
+    index: "01",
     title: t("projects.testcase.title"),
     description: t("projects.testcase.description"),
     imageUrl: "/testcase.png",
@@ -14,41 +15,43 @@ const projects = [
       "Postgres",
       "Prisma",
       "API Cohere",
-      "Nodemailer",
       "Supabase",
-      "Vercel",
     ],
   },
   {
+    index: "02",
+    title: t("projects.megonline.title"),
+    description: t("projects.megonline.description"),
+    imageUrl: "/megonline.png",
+    projectUrl: "https://megonline.coopmego.com/",
+    tags: ["React", "Storybook", "Node.js", "Jenkins"],
+  },
+  {
+    index: "03",
     title: t("projects.laberintos.title"),
     description: t("projects.laberintos.description"),
     imageUrl: "/laberinto.png",
     projectUrl: "https://laberintosapp.netlify.app/",
-    tags: ["React", "Typescript", "Node.js", "Netlify", "Tailwind"],
+    tags: ["React", "TypeScript", "Node.js", "Tailwind"],
   },
   {
+    index: "04",
     title: t("projects.dental.title"),
     description: t("projects.dental.description"),
     imageUrl: "/dental.png",
     projectUrl: "https://castilloclinicadental.netlify.app/",
-    tags: ["Astro", "Node.js", "Netlify", "Tailwind"],
+    tags: ["Astro", "Node.js", "Tailwind"],
   },
   {
+    index: "05",
     title: t("projects.angular.title"),
     description: t("projects.angular.description"),
     imageUrl: "/angular.png",
     projectUrl: "https://angularcruddev.netlify.app/",
-    tags: [
-      "Angular",
-      "Node.js",
-      "Netlify",
-      "Tailwind",
-      "Render",
-      "json-server",
-      "PrimeNG",
-    ],
+    tags: ["Angular", "Node.js", "Tailwind"],
   },
   {
+    index: "06",
     title: t("projects.sales.title"),
     description: t("projects.sales.description"),
     imageUrl: "/market.png",
@@ -56,6 +59,7 @@ const projects = [
     tags: ["Java", "Java FX", "MariaDB", "XAMP"],
   },
   {
+    index: "07",
     title: t("projects.literature.title"),
     description: t("projects.literature.description"),
     imageUrl: "/literature.png",
@@ -63,20 +67,7 @@ const projects = [
     tags: ["React", "Typescript", "Node.js", "Netlify", "Tailwind"],
   },
   {
-    title: t("projects.megonline.title"),
-    description: t("projects.megonline.description"),
-    imageUrl: "/megonline.png",
-    projectUrl: "https://megonline.coopmego.com/",
-    tags: ["StoryBooks", "React.js", "HTML", "CSS", "Node.js", "Jenkins"],
-  },
-  {
-    title: t("projects.minigames.title"),
-    description: t("projects.minigames.description"),
-    imageUrl: "/minigames.png",
-    projectUrl: "https://github.com/JuanCE7/MiniGames-in-JavaFX",
-    tags: ["Java", "Java FX", "MySQL", "MariaDB", "XAMP"],
-  },
-  {
+    index: "08",
     title: t("projects.gestiona.title"),
     description: t("projects.gestiona.description"),
     imageUrl: "/gestiona.png",
@@ -85,6 +76,7 @@ const projects = [
     tags: [".NET", "C#", "Javascript", "Sybase", "Postgres"],
   },
   {
+    index: "09",
     title: t("projects.club.title"),
     description: t("projects.club.description"),
     imageUrl: "/clubestudio.png",
@@ -95,16 +87,20 @@ const projects = [
 ];
 ---
 
-<section id="projects" class="py-20" data-aos="fade-up">
-  <h2
-    class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110"
+<section id="projects" class="py-20 section-fade">
+  <p
+    class="font-mono text-xs text-ink-400 dark:text-neutral-500 tracking-widest uppercase mb-10"
   >
     {t("projects.title")}
-  </h2>
-  <div class="flex flex-col gap-8">
+  </p>
+
+  <div
+    class="flex flex-col divide-y divide-surface-300 dark:divide-neutral-800"
+  >
     {
       projects.map((project) => (
         <ProjectCard
+          index={project.index}
           title={project.title}
           description={project.description}
           imageUrl={project.imageUrl}
@@ -116,3 +112,35 @@ const projects = [
     }
   </div>
 </section>
+
+<hr class="border-surface-300 dark:border-neutral-800" />
+
+<style>
+  .section-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.5s ease,
+      transform 0.5s ease;
+  }
+  .section-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function initSectionFade() {
+    const observer = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("visible");
+        }),
+      { threshold: 0.05 },
+    );
+    document
+      .querySelectorAll(".section-fade")
+      .forEach((el) => observer.observe(el));
+  }
+  document.addEventListener("astro:page-load", initSectionFade);
+</script>

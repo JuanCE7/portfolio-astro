@@ -1,40 +1,43 @@
 ---
 import { languages } from '../i18n/ui';
 const currentPath = Astro.url.pathname;
+const currentLang = currentPath.split('/')[1] || 'es';
 ---
 
 <div class="relative inline-block text-left">
   <button
-    class="bg-white/10 backdrop-blur-sm  px-4 py-2 rounded-full w-full text-left hover:bg-white/20 transition-colors cursor-pointer flex items-center gap-2"
+    class="font-mono text-xs px-3 py-1.5 border border-surface-300 dark:border-neutral-700 text-ink-700 dark:text-neutral-400 rounded-md hover:border-accent dark:hover:border-accent-dark hover:text-accent dark:hover:text-accent-dark transition-colors cursor-pointer"
     onclick="document.getElementById('lang-select').classList.toggle('hidden')"
   >
-    <!-- Icono visible siempre -->
-    <span>🌐</span>
-
-    <!-- Texto solo visible en pantallas medianas en adelante -->
-    <span class="md:hidden">
-      {currentPath.split('/')[1] || 'es'}
-    </span>
-    <span class="hidden md:inline">
-      Idioma: {languages[currentPath.split('/')[1]] || 'Seleccionar idioma'}
-    </span>
+    {currentLang.toUpperCase()}
   </button>
 
   <div
     id="lang-select"
-    class="absolute mt-2 w-full bg-white/10 backdrop-blur-sm rounded-lg shadow-lg hidden z-10"
+    class="absolute right-0 mt-1 w-24 bg-surface-100 dark:bg-neutral-900 border border-surface-300 dark:border-neutral-800 rounded-md shadow-lg hidden z-10 overflow-hidden"
   >
-    <div class="flex flex-col">
-      {
-        Object.entries(languages).map(([lang, label]) => (
-          <a
-            href={`/${lang}/`}
-            class="px-4 py-2 hover:bg-white/20 transition-colors"
-          >
-            {label}
-          </a>
-        ))
-      }
-    </div>
+    {
+      Object.entries(languages).map(([lang, label]) => (
+        <a
+          href={`/${lang}/`}
+          class="block px-3 py-2 font-mono text-xs text-ink-700 dark:text-neutral-400 hover:bg-surface-200 dark:hover:bg-neutral-800 hover:text-accent dark:hover:text-accent-dark transition-colors"
+        >
+          {label}
+        </a>
+      ))
+    }
   </div>
 </div>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      const dropdown = document.getElementById('lang-select');
+      const trigger = e.target as HTMLElement;
+      if (!trigger.closest('.relative')) {
+        dropdown?.classList.add('hidden');
+      }
+    });
+  });
+</script>

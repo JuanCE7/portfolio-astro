@@ -7,6 +7,16 @@ export const defaultLang = "es";
 
 export const ui = {
   en: {
+    "hero.name": "Juan Francisco Castillo",
+    "hero.location": "Loja, Ecuador",
+    "hero.headline": "Full stack developer who builds what users actually need.",
+    "hero.subtitle": "React · Node.js · TypeScript — available for freelance and startups.",
+    "contact.cta.title": "Let's work together.",
+    "contact.cta.body": "I'm available for freelance projects, collaborations, and full-time positions. Feel free to reach out.",
+    "skills.domain.frontend": "Frontend",
+    "skills.domain.backend": "Backend",
+    "skills.domain.database": "Database",
+    "skills.domain.tools": "Tools",
     "nav.about": "About",
     "nav.experience": "Experience",
     "nav.projects": "Projects",
@@ -112,6 +122,16 @@ export const ui = {
     "footer.rights": "All rights reserved.",
   },
   es: {
+    "hero.name": "Juan Francisco Castillo",
+    "hero.location": "Loja, Ecuador",
+    "hero.headline": "Full stack developer que construye lo que los usuarios necesitan.",
+    "hero.subtitle": "React · Node.js · TypeScript — disponible para freelance y startups.",
+    "contact.cta.title": "¿Trabajamos juntos?",
+    "contact.cta.body": "Estoy disponible para proyectos freelance, colaboraciones y posiciones full-time. No dudes en escribirme.",
+    "skills.domain.frontend": "Frontend",
+    "skills.domain.backend": "Backend",
+    "skills.domain.database": "Base de datos",
+    "skills.domain.tools": "Herramientas",
     "nav.about": "Sobre mí",
     "nav.experience": "Experiencia",
     "nav.projects": "Proyectos",

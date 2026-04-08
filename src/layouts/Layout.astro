@@ -1,32 +1,59 @@
 ---
-import '@fontsource-variable/outfit';
+import '@fontsource-variable/figtree';
+import '@fontsource/jetbrains-mono';
+import { ViewTransitions } from 'astro:transitions';
+import FallingLeaves from '../components/FallingLeaves.astro';
 
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "Juan Francisco Castillo — Full stack developer specializing in React, Node.js and TypeScript. Available for freelance and startups.",
+} = Astro.props;
+
+const ogTitle = title;
+const ogDescription = description;
+const canonicalURL = Astro.url;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Francisco Castillo - Personal Portfolio" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={ogDescription} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- OG / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>{title}</title>
-  </head>
-  <body class="font-outfit bg-gradient-to-b from-gradient-start to-gradient-end min-h-screen text-white">
-    <slot />
-    <script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <ViewTransitions />
+
     <script is:inline>
-      AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100,
-      });
+      // Apply saved dark mode preference before first paint
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
     </script>
+  </head>
+  <body class="font-figtree bg-surface-100 dark:bg-neutral-950 text-ink-900 dark:text-neutral-100 antialiased transition-colors duration-300">
+    <FallingLeaves />
+    <slot />
   </body>
 </html>

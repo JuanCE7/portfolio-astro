@@ -1,0 +1,501 @@
+---
+const PETAL_COUNT = 26;
+const PETAL_PATHS = [
+  "M 13,0 C 21,0 26,6 26,13 C 26,20 21,26 13,29 C 5,26 0,20 0,13 C 0,6 5,0 13,0 Z",
+  "M 11,0 C 18,0 22,5 22,12 C 22,21 17,28 11,32 C 5,28 0,21 0,12 C 0,5 4,0 11,0 Z",
+  "M 14,0 C 22,0 27,6 27,14 C 27,22 22,28 14,31 C 6,28 0,22 0,14 C 0,6 6,0 14,0 Z",
+];
+---
+
+<div class="jp-scene" aria-hidden="true" transition:persist>
+
+  <!-- ── Japanese landscape (revealed on scroll) ── -->
+  <svg class="jp-landscape" viewBox="0 0 1440 610"
+    xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+    <defs>
+
+      <!--
+        ── SEIGAIHA (青海波) WAVE PATTERNS ────────────────
+        Tile: width=40 height=20 (r=20)
+        Row A (y=20): one full semicircle, center (20,20)
+          outer arc: M0,20 A20,20 0,0,1 40,20
+          inner arcs at r=16,12,8 (inset by 4,8,12)
+        Row B (y=0, offset +20px): two half-visible semicircles
+          left  center (0,0):  M-20,0 A20,20 0,0,1 20,0
+          right center (40,0): M20,0  A20,20 0,0,1 60,0
+          same inner arcs offset accordingly
+      -->
+      <pattern id="sg-red" patternUnits="userSpaceOnUse" width="40" height="20">
+        <!-- Row A: main scale -->
+        <path d="M0,20  A20,20 0,0,1 40,20" fill="none" stroke="#C41E3A" stroke-width="1.1"/>
+        <path d="M4,20  A16,16 0,0,1 36,20" fill="none" stroke="#C41E3A" stroke-width="0.85"/>
+        <path d="M8,20  A12,12 0,0,1 32,20" fill="none" stroke="#C41E3A" stroke-width="0.7"/>
+        <path d="M12,20 A8,8   0,0,1 28,20" fill="none" stroke="#C41E3A" stroke-width="0.55"/>
+        <!-- Row B: left half-scale -->
+        <path d="M-20,0 A20,20 0,0,1 20,0"  fill="none" stroke="#C41E3A" stroke-width="1.1"/>
+        <path d="M-16,0 A16,16 0,0,1 16,0"  fill="none" stroke="#C41E3A" stroke-width="0.85"/>
+        <path d="M-12,0 A12,12 0,0,1 12,0"  fill="none" stroke="#C41E3A" stroke-width="0.7"/>
+        <path d="M-8,0  A8,8   0,0,1 8,0"   fill="none" stroke="#C41E3A" stroke-width="0.55"/>
+        <!-- Row B: right half-scale -->
+        <path d="M20,0  A20,20 0,0,1 60,0"  fill="none" stroke="#C41E3A" stroke-width="1.1"/>
+        <path d="M24,0  A16,16 0,0,1 56,0"  fill="none" stroke="#C41E3A" stroke-width="0.85"/>
+        <path d="M28,0  A12,12 0,0,1 52,0"  fill="none" stroke="#C41E3A" stroke-width="0.7"/>
+        <path d="M32,0  A8,8   0,0,1 48,0"  fill="none" stroke="#C41E3A" stroke-width="0.55"/>
+      </pattern>
+
+      <pattern id="sg-gold" patternUnits="userSpaceOnUse" width="40" height="20">
+        <path d="M0,20  A20,20 0,0,1 40,20" fill="none" stroke="#B8860B" stroke-width="1.1"/>
+        <path d="M4,20  A16,16 0,0,1 36,20" fill="none" stroke="#B8860B" stroke-width="0.85"/>
+        <path d="M8,20  A12,12 0,0,1 32,20" fill="none" stroke="#B8860B" stroke-width="0.7"/>
+        <path d="M12,20 A8,8   0,0,1 28,20" fill="none" stroke="#B8860B" stroke-width="0.55"/>
+        <path d="M-20,0 A20,20 0,0,1 20,0"  fill="none" stroke="#B8860B" stroke-width="1.1"/>
+        <path d="M-16,0 A16,16 0,0,1 16,0"  fill="none" stroke="#B8860B" stroke-width="0.85"/>
+        <path d="M-12,0 A12,12 0,0,1 12,0"  fill="none" stroke="#B8860B" stroke-width="0.7"/>
+        <path d="M-8,0  A8,8   0,0,1 8,0"   fill="none" stroke="#B8860B" stroke-width="0.55"/>
+        <path d="M20,0  A20,20 0,0,1 60,0"  fill="none" stroke="#B8860B" stroke-width="1.1"/>
+        <path d="M24,0  A16,16 0,0,1 56,0"  fill="none" stroke="#B8860B" stroke-width="0.85"/>
+        <path d="M28,0  A12,12 0,0,1 52,0"  fill="none" stroke="#B8860B" stroke-width="0.7"/>
+        <path d="M32,0  A8,8   0,0,1 48,0"  fill="none" stroke="#B8860B" stroke-width="0.55"/>
+      </pattern>
+
+      <pattern id="sg-dk" patternUnits="userSpaceOnUse" width="40" height="20">
+        <path d="M0,20  A20,20 0,0,1 40,20" fill="none" stroke="#DAA520" stroke-width="1.1"/>
+        <path d="M4,20  A16,16 0,0,1 36,20" fill="none" stroke="#DAA520" stroke-width="0.85"/>
+        <path d="M8,20  A12,12 0,0,1 32,20" fill="none" stroke="#DAA520" stroke-width="0.7"/>
+        <path d="M12,20 A8,8   0,0,1 28,20" fill="none" stroke="#DAA520" stroke-width="0.55"/>
+        <path d="M-20,0 A20,20 0,0,1 20,0"  fill="none" stroke="#DAA520" stroke-width="1.1"/>
+        <path d="M-16,0 A16,16 0,0,1 16,0"  fill="none" stroke="#DAA520" stroke-width="0.85"/>
+        <path d="M-12,0 A12,12 0,0,1 12,0"  fill="none" stroke="#DAA520" stroke-width="0.7"/>
+        <path d="M-8,0  A8,8   0,0,1 8,0"   fill="none" stroke="#DAA520" stroke-width="0.55"/>
+        <path d="M20,0  A20,20 0,0,1 60,0"  fill="none" stroke="#DAA520" stroke-width="1.1"/>
+        <path d="M24,0  A16,16 0,0,1 56,0"  fill="none" stroke="#DAA520" stroke-width="0.85"/>
+        <path d="M28,0  A12,12 0,0,1 52,0"  fill="none" stroke="#DAA520" stroke-width="0.7"/>
+        <path d="M32,0  A8,8   0,0,1 48,0"  fill="none" stroke="#DAA520" stroke-width="0.55"/>
+      </pattern>
+
+      <!-- Clip circles to SVG viewport so no overflow -->
+      <clipPath id="vp"><rect x="0" y="0" width="1440" height="610"/></clipPath>
+
+      <!-- ── FULL MOON gradient (dark mode) ── -->
+      <radialGradient id="moon-grd" cx="42%" cy="38%" r="55%">
+        <stop offset="0%"   stop-color="#FFFFE8" stop-opacity="1"/>
+        <stop offset="30%"  stop-color="#F8F5DC" stop-opacity="0.99"/>
+        <stop offset="60%"  stop-color="#EDE8C8" stop-opacity="0.95"/>
+        <stop offset="85%"  stop-color="#DDD8B0" stop-opacity="0.88"/>
+        <stop offset="100%" stop-color="#C8C2A0" stop-opacity="0.78"/>
+      </radialGradient>
+      <!-- Outer moon halo -->
+      <radialGradient id="moon-halo" cx="50%" cy="50%" r="50%">
+        <stop offset="80%"  stop-color="#E8E4C0" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#E8E4C0" stop-opacity="0.12"/>
+      </radialGradient>
+
+      <!-- ── REUSABLE: 5-petal sakura flower outline ── -->
+      <g id="sf">
+        <ellipse cx="0" cy="-8.5" rx="4.5" ry="7.2" fill="none" stroke="currentColor" stroke-width="0.75"/>
+        <ellipse cx="0" cy="-8.5" rx="4.5" ry="7.2" fill="none" stroke="currentColor" stroke-width="0.75" transform="rotate(72)"/>
+        <ellipse cx="0" cy="-8.5" rx="4.5" ry="7.2" fill="none" stroke="currentColor" stroke-width="0.75" transform="rotate(144)"/>
+        <ellipse cx="0" cy="-8.5" rx="4.5" ry="7.2" fill="none" stroke="currentColor" stroke-width="0.75" transform="rotate(216)"/>
+        <ellipse cx="0" cy="-8.5" rx="4.5" ry="7.2" fill="none" stroke="currentColor" stroke-width="0.75" transform="rotate(288)"/>
+        <circle cx="0" cy="0" r="2.8" fill="none" stroke="currentColor" stroke-width="0.75"/>
+        <line x1="0" y1="0" x2="0" y2="-4" stroke="currentColor" stroke-width="0.5" transform="rotate(36)"/>
+        <line x1="0" y1="0" x2="0" y2="-4" stroke="currentColor" stroke-width="0.5" transform="rotate(108)"/>
+        <line x1="0" y1="0" x2="0" y2="-4" stroke="currentColor" stroke-width="0.5" transform="rotate(180)"/>
+        <line x1="0" y1="0" x2="0" y2="-4" stroke="currentColor" stroke-width="0.5" transform="rotate(252)"/>
+        <line x1="0" y1="0" x2="0" y2="-4" stroke="currentColor" stroke-width="0.5" transform="rotate(324)"/>
+      </g>
+
+      <!-- ── REUSABLE: stylised leaf outline (dark mode) ── -->
+      <g id="lf">
+        <path d="M0,0 C-7,-10 -8,-20 0,-30 C8,-20 7,-10 0,0Z" fill="none" stroke="currentColor" stroke-width="0.75"/>
+        <line x1="0" y1="-1" x2="0"  y2="-28" stroke="currentColor" stroke-width="0.5"/>
+        <line x1="0" y1="-9" x2="-5" y2="-15" stroke="currentColor" stroke-width="0.4"/>
+        <line x1="0" y1="-9" x2="5"  y2="-15" stroke="currentColor" stroke-width="0.4"/>
+        <line x1="0" y1="-17" x2="-4" y2="-22" stroke="currentColor" stroke-width="0.4"/>
+        <line x1="0" y1="-17" x2="4"  y2="-22" stroke="currentColor" stroke-width="0.4"/>
+      </g>
+
+      <!-- ── BLOSSOM CLUSTERS (inherit fill from parent wrapper) ── -->
+      <!-- no fill attr on circles → inherits from parent group -->
+      <g id="blsm">
+        <!-- around 538, 268 -->
+        <circle cx="535" cy="259" r="18"/><circle cx="553" cy="249" r="14"/>
+        <circle cx="521" cy="252" r="13"/><circle cx="547" cy="273" r="12"/>
+        <circle cx="526" cy="275" r="11"/><circle cx="561" cy="262" r="11"/>
+        <!-- around 494, 230 -->
+        <circle cx="492" cy="222" r="16"/><circle cx="508" cy="212" r="12"/>
+        <circle cx="479" cy="217" r="12"/><circle cx="502" cy="237" r="10"/>
+        <circle cx="487" cy="239" r="9"/>
+        <!-- around 692, 184 -->
+        <circle cx="690" cy="176" r="16"/><circle cx="706" cy="166" r="13"/>
+        <circle cx="677" cy="169" r="12"/><circle cx="699" cy="191" r="11"/>
+        <circle cx="681" cy="191" r="10"/>
+        <!-- around 646, 162 -->
+        <circle cx="645" cy="155" r="13"/><circle cx="659" cy="146" r="10"/>
+        <circle cx="634" cy="148" r="10"/>
+        <!-- around 627, 82 -->
+        <circle cx="627" cy="75"  r="14"/><circle cx="641" cy="65"  r="11"/>
+        <circle cx="615" cy="66"  r="11"/><circle cx="634" cy="87"  r="9"/>
+        <!-- around 763, 62 -->
+        <circle cx="761" cy="54"  r="16"/><circle cx="777" cy="44"  r="12"/>
+        <circle cx="747" cy="46"  r="12"/><circle cx="769" cy="68"  r="10"/>
+        <circle cx="751" cy="68"  r="9"/>
+        <!-- around 717, 112 -->
+        <circle cx="716" cy="105" r="13"/><circle cx="730" cy="96"  r="10"/>
+        <circle cx="704" cy="98"  r="10"/>
+        <!-- left branch tip 128, 304 -->
+        <circle cx="128" cy="297" r="16"/><circle cx="144" cy="287" r="12"/>
+        <circle cx="114" cy="289" r="12"/><circle cx="136" cy="309" r="10"/>
+        <circle cx="120" cy="309" r="9"/>
+        <!-- accent dots along branches -->
+        <circle cx="458" cy="183" r="9"/> <circle cx="472" cy="175" r="7"/>
+        <circle cx="390" cy="293" r="8"/> <circle cx="378" cy="283" r="6"/>
+        <circle cx="234" cy="370" r="8"/>
+      </g>
+    </defs>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- LIGHT MODE SCENE                          -->
+    <!-- ════════════════════════════════════════ -->
+    <g class="sl">
+
+      <!-- Seigaiha corners — complete circles, tangent to viewport edges -->
+      <!-- BL: cx=r cy=H-r → tangent to left+bottom, stays left of bonsai (x≤240) -->
+      <circle cx="118" cy="492" r="118" fill="url(#sg-red)"  clip-path="url(#vp)" opacity="0.82"/>
+      <!-- TR: cx=W-r cy=r → tangent to right+top -->
+      <circle cx="1322" cy="118" r="118" fill="url(#sg-gold)" clip-path="url(#vp)" opacity="0.82"/>
+      <!-- BR: accent, tangent to right+bottom -->
+      <circle cx="1350" cy="515" r="95"  fill="url(#sg-gold)" clip-path="url(#vp)" opacity="0.60"/>
+
+      <!-- Red sun (solid circle) -->
+      <circle cx="540" cy="352" r="192" fill="#C41E3A" opacity="0.87"/>
+      <!-- Subtle inner rim for depth -->
+      <circle cx="540" cy="352" r="178" fill="none" stroke="#E8324D" stroke-width="2.5" opacity="0.28"/>
+
+      <!-- Bonsai pot — gold / bamboo layers -->
+      <path d="M 240,549 L 250,585 L 370,585 L 380,549 Z" fill="#C49828"/>
+      <line x1="243" y1="562" x2="377" y2="562" stroke="#8a6810" stroke-width="1.8" opacity="0.7"/>
+      <line x1="246" y1="575" x2="374" y2="575" stroke="#8a6810" stroke-width="1.5" opacity="0.6"/>
+      <rect x="252" y="585" width="116" height="10" rx="3" fill="#9a7212"/>
+      <rect x="244" y="595" width="132" height="8"  rx="3" fill="#b08a18"/>
+      <ellipse cx="310" cy="596" rx="78" ry="6"    fill="#6a5008" opacity="0.35"/>
+
+      <!-- Bonsai trunk (dark brown, 2-layer for organic feel) -->
+      <path d="M 293,548 C 283,506 270,460 274,420 C 278,384 302,362 305,330 C 308,300 293,276 308,254 C 320,237 343,231 357,220"
+        fill="none" stroke="#3D1F0A" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M 298,548 C 289,506 278,462 282,422 C 286,386 307,366 310,334 C 313,305 300,282 313,262"
+        fill="none" stroke="#5a3015" stroke-width="16" stroke-linecap="round"/>
+      <!-- Trunk narrow highlight -->
+      <path d="M 302,548 C 294,510 285,470 288,434 C 291,400 310,380 313,352 C 316,326 305,304 316,284"
+        fill="none" stroke="#6b3a1a" stroke-width="7" stroke-linecap="round"/>
+
+      <!-- Branches (right / upper / left) -->
+      <path d="M 305,330 C 340,310 385,297 428,286 C 464,277 504,274 538,268"
+        fill="none" stroke="#3D1F0A" stroke-width="12" stroke-linecap="round"/>
+      <path d="M 428,286 C 458,268 478,250 494,230"
+        fill="none" stroke="#3D1F0A" stroke-width="7.5" stroke-linecap="round"/>
+      <path d="M 538,268 C 572,256 606,242 636,226 C 658,213 676,198 692,184"
+        fill="none" stroke="#3D1F0A" stroke-width="6.5" stroke-linecap="round"/>
+      <path d="M 636,226 C 650,204 654,182 646,162"
+        fill="none" stroke="#3D1F0A" stroke-width="4.5" stroke-linecap="round"/>
+      <path d="M 357,220 C 392,202 437,188 479,176"
+        fill="none" stroke="#3D1F0A" stroke-width="10.5" stroke-linecap="round"/>
+      <path d="M 479,176 C 519,163 563,154 603,144 C 645,134 685,126 717,112"
+        fill="none" stroke="#3D1F0A" stroke-width="6.5" stroke-linecap="round"/>
+      <path d="M 603,144 C 625,124 633,102 627,82"
+        fill="none" stroke="#3D1F0A" stroke-width="4.2" stroke-linecap="round"/>
+      <path d="M 717,112 C 743,98 759,81 763,62"
+        fill="none" stroke="#3D1F0A" stroke-width="3.8" stroke-linecap="round"/>
+      <path d="M 278,416 C 250,396 220,378 188,360"
+        fill="none" stroke="#3D1F0A" stroke-width="8.5" stroke-linecap="round"/>
+      <path d="M 188,360 C 165,344 144,326 128,304"
+        fill="none" stroke="#3D1F0A" stroke-width="5.5" stroke-linecap="round"/>
+
+      <!-- Japanese name — vertical calligraphy (light mode) -->
+      <text x="905" y="108"
+        writing-mode="tb" glyph-orientation-vertical="0"
+        font-family="'Hiragino Mincho Pro', 'Yu Mincho', 'MS Mincho', 'Noto Serif JP', serif"
+        font-size="17" letter-spacing="6"
+        fill="#3D1F0A" opacity="0.22">
+        フアン・フランシスコ・カスティージョ
+      </text>
+
+      <!-- Blossom clusters — main pink -->
+      <g fill="#F0A0BC" opacity="0.93">
+        <use href="#blsm"/>
+      </g>
+      <!-- Deeper accent pink -->
+      <g fill="#DC7090" opacity="0.72">
+        <circle cx="554" cy="257" r="6"/>  <circle cx="500" cy="212" r="5.5"/>
+        <circle cx="708" cy="166" r="6"/>  <circle cx="762" cy="44"  r="5.5"/>
+        <circle cx="129" cy="297" r="5.5"/>
+      </g>
+      <!-- White petal centres -->
+      <g fill="rgba(255,240,248,0.88)">
+        <circle cx="535" cy="257" r="4.5"/><circle cx="492" cy="220" r="4"/>
+        <circle cx="690" cy="174" r="4.5"/><circle cx="761" cy="52"  r="4"/>
+        <circle cx="627" cy="73"  r="4"/>  <circle cx="128" cy="295" r="3.5"/>
+      </g>
+    </g>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- DARK MODE SCENE                           -->
+    <!-- ════════════════════════════════════════ -->
+    <g class="sd">
+
+      <!-- Seigaiha corners (dark mode — all gold, full circles tangent to edges) -->
+      <!-- BL -->
+      <circle cx="118"  cy="492" r="118" fill="url(#sg-dk)" clip-path="url(#vp)" opacity="0.78"/>
+      <!-- TR -->
+      <circle cx="1322" cy="118" r="118" fill="url(#sg-dk)" clip-path="url(#vp)" opacity="0.78"/>
+      <!-- BR -->
+      <circle cx="1350" cy="515" r="95"  fill="url(#sg-dk)" clip-path="url(#vp)" opacity="0.55"/>
+      <!-- TL (dark only) — tangent to left+top -->
+      <circle cx="118"  cy="118" r="118" fill="url(#sg-dk)" clip-path="url(#vp)" opacity="0.65"/>
+
+      <!-- Moon — full, solid, realistic with radial gradient -->
+      <!-- Outer atmospheric halo -->
+      <circle cx="540" cy="352" r="216" fill="url(#moon-halo)"/>
+      <!-- Moon body -->
+      <circle cx="540" cy="352" r="192" fill="url(#moon-grd)"/>
+      <!-- Subtle surface shading (darker limb) -->
+      <circle cx="540" cy="352" r="192" fill="none"
+        stroke="rgba(180,170,130,0.22)" stroke-width="18"/>
+
+      <!-- Bonsai pot — dark with gold accent lines -->
+      <path d="M 240,549 L 250,585 L 370,585 L 380,549 Z" fill="#1e1509"/>
+      <line x1="243" y1="562" x2="377" y2="562" stroke="#8B6914" stroke-width="1.8" opacity="0.52"/>
+      <line x1="246" y1="575" x2="374" y2="575" stroke="#8B6914" stroke-width="1.5" opacity="0.45"/>
+      <rect x="252" y="585" width="116" height="10" rx="3" fill="#14100a"/>
+      <rect x="244" y="595" width="132" height="8"  rx="3" fill="#1c160c"/>
+      <ellipse cx="310" cy="596" rx="78" ry="6"    fill="#050402" opacity="0.7"/>
+
+      <!-- Bonsai trunk (near-black) -->
+      <path d="M 293,548 C 283,506 270,460 274,420 C 278,384 302,362 305,330 C 308,300 293,276 308,254 C 320,237 343,231 357,220"
+        fill="none" stroke="#120A02" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M 298,548 C 289,506 278,462 282,422 C 286,386 307,366 310,334 C 313,305 300,282 313,262"
+        fill="none" stroke="#1e1008" stroke-width="16" stroke-linecap="round"/>
+      <path d="M 302,548 C 294,510 285,470 288,434 C 291,400 310,380 313,352 C 316,326 305,304 316,284"
+        fill="none" stroke="#2a160a" stroke-width="7"  stroke-linecap="round"/>
+
+      <!-- Branches (same paths, dark) -->
+      <path d="M 305,330 C 340,310 385,297 428,286 C 464,277 504,274 538,268"
+        fill="none" stroke="#120A02" stroke-width="12" stroke-linecap="round"/>
+      <path d="M 428,286 C 458,268 478,250 494,230"
+        fill="none" stroke="#120A02" stroke-width="7.5" stroke-linecap="round"/>
+      <path d="M 538,268 C 572,256 606,242 636,226 C 658,213 676,198 692,184"
+        fill="none" stroke="#120A02" stroke-width="6.5" stroke-linecap="round"/>
+      <path d="M 636,226 C 650,204 654,182 646,162"
+        fill="none" stroke="#120A02" stroke-width="4.5" stroke-linecap="round"/>
+      <path d="M 357,220 C 392,202 437,188 479,176"
+        fill="none" stroke="#120A02" stroke-width="10.5" stroke-linecap="round"/>
+      <path d="M 479,176 C 519,163 563,154 603,144 C 645,134 685,126 717,112"
+        fill="none" stroke="#120A02" stroke-width="6.5" stroke-linecap="round"/>
+      <path d="M 603,144 C 625,124 633,102 627,82"
+        fill="none" stroke="#120A02" stroke-width="4.2" stroke-linecap="round"/>
+      <path d="M 717,112 C 743,98 759,81 763,62"
+        fill="none" stroke="#120A02" stroke-width="3.8" stroke-linecap="round"/>
+      <path d="M 278,416 C 250,396 220,378 188,360"
+        fill="none" stroke="#120A02" stroke-width="8.5" stroke-linecap="round"/>
+      <path d="M 188,360 C 165,344 144,326 128,304"
+        fill="none" stroke="#120A02" stroke-width="5.5" stroke-linecap="round"/>
+
+      <!-- Japanese name — vertical calligraphy (dark mode) -->
+      <text x="905" y="108"
+        writing-mode="tb" glyph-orientation-vertical="0"
+        font-family="'Hiragino Mincho Pro', 'Yu Mincho', 'MS Mincho', 'Noto Serif JP', serif"
+        font-size="17" letter-spacing="6"
+        fill="#DAA520" opacity="0.28">
+        フアン・フランシスコ・カスティージョ
+      </text>
+
+      <!-- Blossom clusters — vivid red-pink for night -->
+      <g fill="#E8324D" opacity="0.74">
+        <use href="#blsm"/>
+      </g>
+      <!-- Deeper red accent -->
+      <g fill="#C41E3A" opacity="0.58">
+        <circle cx="554" cy="257" r="6"/>  <circle cx="500" cy="212" r="5.5"/>
+        <circle cx="708" cy="166" r="6"/>  <circle cx="762" cy="44"  r="5.5"/>
+        <circle cx="129" cy="297" r="5.5"/>
+      </g>
+      <!-- Glowing petal centres -->
+      <g fill="rgba(255,190,210,0.65)">
+        <circle cx="535" cy="257" r="4.5"/><circle cx="492" cy="220" r="4"/>
+        <circle cx="690" cy="174" r="4.5"/><circle cx="761" cy="52"  r="4"/>
+        <circle cx="627" cy="73"  r="4"/>  <circle cx="128" cy="295" r="3.5"/>
+      </g>
+    </g>
+  </svg>
+
+  <!-- ── Falling sakura petals ── -->
+  {Array.from({ length: PETAL_COUNT }).map((_, i) => {
+    const pathIndex = i % PETAL_PATHS.length;
+    const delay = ((i * 0.73) % 20).toFixed(2);
+    return (
+      <svg class={`petal petal--${i % 3}`} style={`--delay: ${delay}s`}
+        viewBox="0 0 30 35" xmlns="http://www.w3.org/2000/svg">
+        <path d={PETAL_PATHS[pathIndex]}/>
+        <line x1="14" y1="3" x2="14" y2="28"
+          stroke="currentColor" stroke-width="0.6" stroke-linecap="round" opacity="0.25"/>
+      </svg>
+    );
+  })}
+</div>
+
+<style>
+  /* ── Container ──────────────────────────── */
+  .jp-scene {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  /* ── Landscape SVG ──────────────────────── */
+  .jp-landscape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    min-width: 900px;
+    opacity: 0;
+    will-change: opacity, transform;
+    /* Seamless blend: top fades into page background */
+    -webkit-mask-image: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(0,0,0,0.2) 18%,
+      rgba(0,0,0,0.7) 38%,
+      black 58%);
+    mask-image: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(0,0,0,0.2) 18%,
+      rgba(0,0,0,0.7) 38%,
+      black 58%);
+  }
+
+  /* ── Scene switching (light ↔ dark) ─────── */
+  .sl { transition: opacity 0.6s ease; opacity: 1; }
+  .sd { transition: opacity 0.6s ease; opacity: 0; }
+
+  :global(.dark) .sl { opacity: 0; }
+  :global(.dark) .sd { opacity: 1; }
+
+  /* ── Petals ─────────────────────────────── */
+  .petal {
+    position: absolute;
+    top: -40px;
+    animation: petal-fall var(--dur, 18s) ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+    transform-origin: 50% 50%;
+    will-change: transform, opacity;
+  }
+
+  .petal--0 {
+    width: 20px; height: 24px;
+    color: rgba(196,30,58,0.12);
+    fill: rgba(196,30,58,0.58);
+    filter: drop-shadow(0 1px 2px rgba(196,30,58,0.25));
+  }
+  .petal--1 {
+    width: 14px; height: 17px;
+    color: rgba(220,90,110,0.1);
+    fill: rgba(220,90,110,0.48);
+    filter: drop-shadow(0 1px 2px rgba(220,90,110,0.2));
+  }
+  .petal--2 {
+    width: 24px; height: 29px;
+    color: rgba(240,140,160,0.08);
+    fill: rgba(240,140,160,0.38);
+    filter: drop-shadow(0 1px 3px rgba(196,30,58,0.15));
+  }
+
+  :global(.dark) .petal--0 { fill: rgba(232,50,77,0.40); }
+  :global(.dark) .petal--1 { fill: rgba(210,80,100,0.30); }
+  :global(.dark) .petal--2 { fill: rgba(200,110,130,0.24); }
+
+  @keyframes petal-fall {
+    0% {
+      transform: translateY(-40px) translateX(0) rotate(var(--rot0,0deg)) rotateY(0deg) scale(var(--sc,1));
+      opacity: 0;
+    }
+    6%  { opacity: 1; }
+    20% { transform: translateY(18vh) translateX(var(--x1,30px))  rotate(var(--rot1,55deg))  rotateY(60deg)  scale(var(--sc,1)); }
+    40% { transform: translateY(38vh) translateX(var(--x2,-25px)) rotate(var(--rot2,130deg)) rotateY(0deg)   scale(var(--sc,1)); }
+    60% { transform: translateY(58vh) translateX(var(--x1,30px))  rotate(var(--rot3,200deg)) rotateY(-60deg) scale(var(--sc,1)); }
+    80% { transform: translateY(78vh) translateX(var(--x2,-25px)) rotate(var(--rot4,290deg)) rotateY(0deg)   scale(var(--sc,1)); }
+    93% { opacity: 0.7; }
+    100% {
+      transform: translateY(112vh) translateX(0) rotate(var(--rot5,380deg)) rotateY(90deg) scale(var(--sc,1));
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  let _scrollHandler: (() => void) | null = null;
+
+  function initScene() {
+    // ── Randomise petals ──────────────────────
+    document.querySelectorAll<HTMLElement>(".petal").forEach((el) => {
+      const left  = 2 + Math.random() * 96;
+      const dur   = 14 + Math.random() * 12;
+      const sc    = 0.65 + Math.random() * 0.8;
+      const x1    =  20 + Math.random() * 60;
+      const x2    = -(20 + Math.random() * 50);
+      const rot0  = Math.random() * 60;
+      const delta = 60 + Math.random() * 80;
+
+      el.style.left = `${left}%`;
+      el.style.setProperty("--dur",  `${dur}s`);
+      el.style.setProperty("--sc",   `${sc}`);
+      el.style.setProperty("--x1",   `${x1}px`);
+      el.style.setProperty("--x2",   `${x2}px`);
+      el.style.setProperty("--rot0", `${rot0}deg`);
+      el.style.setProperty("--rot1", `${rot0 + delta * 0.7}deg`);
+      el.style.setProperty("--rot2", `${rot0 + delta * 1.4}deg`);
+      el.style.setProperty("--rot3", `${rot0 + delta * 2.1}deg`);
+      el.style.setProperty("--rot4", `${rot0 + delta * 2.8}deg`);
+      el.style.setProperty("--rot5", `${rot0 + delta * 3.5}deg`);
+    });
+
+    // ── Scroll-reveal landscape ───────────────
+    const landscape = document.querySelector<HTMLElement>(".jp-landscape");
+    if (!landscape) return;
+
+    // Remove previous listener to avoid stacking on navigation
+    if (_scrollHandler) window.removeEventListener("scroll", _scrollHandler);
+
+    _scrollHandler = () => {
+      const scrolled  = window.scrollY;
+      const maxScroll = Math.max(document.body.scrollHeight - window.innerHeight, 1);
+      const p = scrolled / maxScroll; // 0 → 1
+
+      // ── Opacity: bell curve ─────────────────────────
+      // Fade in 0→35%, hold 35→65%, fade out 65→100%
+      let opacity = 0;
+      if (p < 0.35) {
+        opacity = (p / 0.35) * 0.92;
+      } else if (p < 0.65) {
+        opacity = 0.92;
+      } else {
+        opacity = ((1 - p) / 0.35) * 0.92;
+      }
+      landscape.style.opacity = String(Math.max(0, opacity));
+
+      // ── Parallax: landscape rises as user scrolls ───
+      // Starts 120px below rest position, moves up past rest,
+      // then continues upward so it "passes through" the screen.
+      // Total travel range: 240px over the full scroll.
+      const translateY = 120 - scrolled * (240 / maxScroll);
+      landscape.style.transform = `translateY(${translateY}px)`;
+    };
+
+    window.addEventListener("scroll", _scrollHandler, { passive: true });
+    _scrollHandler(); // apply immediately (e.g. if page refreshed mid-scroll)
+  }
+
+  document.addEventListener("astro:page-load", initScene);
+</script>

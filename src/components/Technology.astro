@@ -1,115 +1,104 @@
 ---
-import TechnologyCard from "./TechnologyCard.astro";
 const { t } = Astro.props;
 
-const technologies = [
+// Dot levels: advanced = 10 dots, intermediate = 7, basic = 4
+const LEVELS = {
+  advanced:     { dots: 10, label: (t: any) => t("skills.level.advanced") },
+  intermediate: { dots: 7,  label: (t: any) => t("skills.level.intermediate") },
+  basic:        { dots: 4,  label: (t: any) => t("skills.level.basic") },
+};
+
+const domains = [
   {
-    name: "JavaScript",
-    icon: "logos:javascript",
-    level: t("skills.level.advanced"),
+    name: t("skills.domain.frontend"),
+    skills: [
+      { name: "JavaScript",  level: "advanced" },
+      { name: "TypeScript",  level: "advanced" },
+      { name: "React",       level: "intermediate" },
+      { name: "Next.js",     level: "intermediate" },
+      { name: "Angular",     level: "intermediate" },
+      { name: "Astro",       level: "intermediate" },
+      { name: "HTML / CSS",  level: "intermediate" },
+      { name: "Tailwind",    level: "intermediate" },
+    ],
   },
   {
-    name: "TypeScript",
-    icon: "logos:typescript-icon",
-    level: t("skills.level.advanced"),
+    name: t("skills.domain.backend"),
+    skills: [
+      { name: "Node.js",    level: "intermediate" },
+      { name: "Nest.js",    level: "intermediate" },
+      { name: "Express.js", level: "intermediate" },
+      { name: ".NET",       level: "basic" },
+    ],
   },
   {
-    name: "HTML",
-    icon: "logos:html-5",
-    level: t("skills.level.intermediate"),
+    name: t("skills.domain.database"),
+    skills: [
+      { name: "PostgreSQL", level: "intermediate" },
+      { name: "MongoDB",    level: "intermediate" },
+      { name: "MySQL",      level: "intermediate" },
+    ],
   },
   {
-    name: "CSS",
-    icon: "logos:css-3",
-    level: t("skills.level.intermediate"),
-  },
-  {
-    name: "Node.js",
-    icon: "logos:nodejs",
-    level: t("skills.level.intermediate"),
-  },
-  {
-    name: "React",
-    icon: "logos:react",
-    level: t("skills.level.intermediate"),
-  },
-  {
-    name: "Next.js",
-    icon: "logos:nextjs-icon",
-    level: t("skills.level.intermediate"),
-  },
-  {
-    name: "Express.js",
-    icon: "logos:express",
-    level: t("skills.level.intermediate"),
-  },
-  {
-    name: "Nest.js",
-    icon: "logos:nestjs",
-    level: t("skills.level.intermediate"),
-  },
-  {
-    name: "Astro",
-    icon: "logos:astro-icon",
-    level: t("skills.level.intermediate"),
-  },
-  {
-    name: ".NET",
-    icon: "logos:dotnet",
-    level: t("skills.level.basic"),
-  },
-  {
-    name: "Angular",
-    icon: "logos:angular-icon",
-    level: t("skills.level.intermediate"),
-  },
-  {
-    name: "Docker",
-    icon: "logos:docker-icon",
-    level: t("skills.level.intermediate"),
-  },
-  {
-    name: "MongoDB",
-    icon: "logos:mongodb-icon",
-    level: t("skills.level.intermediate"),
-  },
-  {
-    name: "PostgreSQL",
-    icon: "logos:postgresql",
-    level: t("skills.level.intermediate"),
-  },
-  {
-    name: "Java",
-    icon: "logos:java",
-    level: t("skills.level.intermediate"),
-  },
-  {
-    name: "Git",
-    icon: "logos:git-icon",
-    level: t("skills.level.advanced"),
-  },
-  {
-    name: "Tailwind",
-    icon: "logos:tailwindcss-icon",
-    level: t("skills.level.intermediate"),
+    name: t("skills.domain.tools"),
+    skills: [
+      { name: "Git",    level: "advanced" },
+      { name: "Docker", level: "intermediate" },
+      { name: "Java",   level: "intermediate" },
+    ],
   },
 ];
+
+function dots(level: string) {
+  const count = LEVELS[level as keyof typeof LEVELS]?.dots ?? 7;
+  const total = 10;
+  return '·'.repeat(count) + '<span class="text-surface-300 dark:text-neutral-700">' + '·'.repeat(total - count) + '</span>';
+}
 ---
 
-<section id="technology" class="py-20">
-  <h2 class="text-3xl font-bold text-center mb-12 transition-transform hover:scale-110">{t("skills.title")}</h2>
-  <div
-    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
-  >
-    {
-      technologies.map((technology, index) => (
-        <TechnologyCard
-          name={technology.name}
-          icon={technology.icon}
-          level={technology.level}
-          index={index}
-        />
-      ))
-    }
+<section id="technology" class="py-20 section-fade">
+  <p class="font-mono text-xs text-ink-400 dark:text-neutral-500 tracking-widest uppercase mb-10">{t("skills.title")}</p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+    {domains.map(domain => (
+      <div>
+        <h3 class="font-mono text-xs font-semibold text-ink-900 dark:text-neutral-100 uppercase tracking-wider mb-4">
+          {domain.name}
+        </h3>
+        <div class="space-y-2">
+          {domain.skills.map(skill => (
+            <div class="flex items-center justify-between gap-4">
+              <span class="text-sm text-ink-700 dark:text-neutral-400">{skill.name}</span>
+              <span class="font-mono text-xs text-accent dark:text-accent-dark flex-shrink-0" set:html={dots(skill.level)} />
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
   </div>
 </section>
+
+<hr class="border-surface-300 dark:border-neutral-800" />
+
+<style>
+  .section-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .section-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function initSectionFade() {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll('.section-fade').forEach(el => observer.observe(el));
+  }
+  document.addEventListener('astro:page-load', initSectionFade);
+</script>

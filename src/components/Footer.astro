@@ -1,10 +1,29 @@
 ---
-import SocialLinks from "./SocialLinks.astro";
+const { t } = Astro.props;
+
+const links = [
+  { label: "GitHub", url: "https://github.com/JuanCE7" },
+  { label: "LinkedIn", url: "https://www.linkedin.com/in/juan-castillo-181637277/" },
+  { label: "Instagram", url: "https://www.instagram.com/juanito_rex01/" },
+];
 ---
 
-<footer class="py-8 text-center">
-  <SocialLinks />
-  <p class="mt-4">
-    &copy; {new Date().getFullYear()} Francisco Castillo. All rights reserved.
-  </p>
+<footer class="py-10 border-t border-surface-300 dark:border-neutral-800">
+  <div class="max-w-3xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="font-mono text-xs text-ink-400 dark:text-neutral-500">
+      &copy; {new Date().getFullYear()} Francisco Castillo. {t("footer.rights")}
+    </p>
+    <div class="flex gap-6">
+      {links.map(link => (
+        <a
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-mono text-xs text-ink-400 dark:text-neutral-500 hover:text-accent dark:hover:text-accent-dark transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
 </footer>

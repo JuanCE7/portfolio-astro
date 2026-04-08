@@ -1,122 +1,76 @@
 ---
-import SocialLinks from "./SocialLinks.astro";
 const { t } = Astro.props;
 ---
 
 <section
   id="hero"
-  class="min-h-screen flex flex-col items-center justify-center text-center"
+  class="min-h-screen flex flex-col justify-center py-24 fade-in relative"
 >
-  <div id="logo-wrapper" class="relative w-96 h-96 mb-8 cursor-pointer">
-    <img
-      id="logo"
-      src="/logo.svg"
-      alt="Francisco Castillo Logo"
-      class="absolute inset-0 w-full h-full object-contain transition-opacity duration-300"
-    />
-    <img
-      id="logo-hover"
-      src="/logo-1.svg"
-      alt="Francisco Castillo Logo Alt"
-      class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300"
-    />
+  <!-- Japanese name — vertical calligraphy on right edge -->
+  <div class="absolute right-0 top-0 h-full hidden md:flex items-center pr-1 select-none pointer-events-none" aria-hidden="true">
+    <span class="font-serif text-xs tracking-[0.45em] text-ink-200 dark:text-neutral-800 opacity-70"
+      style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: 0.45em;">
+      フアン・フランシスコ・カスティージョ
+    </span>
   </div>
-  <div class="flex flex-col items-center gap-6">
-    <SocialLinks />
-    <h2 class="text-2xl text-primary-500 hidden md:inline">
-      <span id="typed" data-strings={JSON.stringify(t("about.title2"))}></span>
-    </h2>
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+
+  <div class="space-y-8">
+    <!-- Name + location -->
+    <p class="font-mono text-sm text-ink-400 dark:text-neutral-500 tracking-widest uppercase">
+      {t("hero.name")} &middot; {t("hero.location")}
+    </p>
+
+    <!-- Headline -->
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight text-ink-900 dark:text-neutral-100 max-w-2xl">
+      {t("hero.headline")}
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="font-mono text-base text-ink-400 dark:text-neutral-400 max-w-lg">
+      {t("hero.subtitle")}
+    </p>
+
+    <!-- Decorative code snippet -->
+    <div class="border border-surface-300 dark:border-neutral-800 rounded-lg overflow-hidden max-w-xs bg-surface-200 dark:bg-neutral-900">
+      <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-surface-300 dark:border-neutral-800">
+        <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-green-400"></span>
+      </div>
+      <pre class="font-mono text-xs sm:text-sm p-4 text-ink-700 dark:text-neutral-300 leading-relaxed overflow-x-auto"><code><span class="text-accent dark:text-accent-dark">const</span> <span class="text-ink-900 dark:text-neutral-100">juan_castillo</span> <span class="text-accent dark:text-accent-dark">=</span> &#123;
+  stack<span class="text-ink-400">:</span> [<span class="text-green-600 dark:text-green-400">'Nest.js'</span><span class="text-ink-400">,</span> <span class="text-green-600 dark:text-green-400">'Node'</span><span class="text-ink-400">,</span> <span class="text-green-600 dark:text-green-400">'TS'</span>]<span class="text-ink-400">,</span>
+  available<span class="text-ink-400">:</span> <span class="text-blue-500 dark:text-blue-400">true</span><span class="text-ink-400">,</span>
+  coffee<span class="text-ink-400">:</span> <span class="text-green-600 dark:text-green-400">"required ☕"</span><span class="text-ink-400">,</span>
+&#125;</code></pre>
+    </div>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-start gap-4 pt-2">
       <a
         href="#projects"
-        class="group relative inline-flex items-center gap-2 px-8 py-4 bg-primary-900 backdrop-blur-lg rounded-full overflow-hidden transition-all duration-300 hover:bg-primary-500 hover:text-primary-900"
-        data-aos="fade-right"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-accent dark:bg-accent-dark text-white rounded-lg font-medium text-sm hover:opacity-90 transition-opacity"
       >
-        <span class="relative z-10 font-medium"> {t("hero.cta.projects")}</span>
-        <iconify-icon
-          icon="carbon-ibm-cloud-projects"
-          class="relative z-10 w-5 h-5 transition-transform duration-300 group-hover:translate-y-1"
-        >
-        </iconify-icon>
+        {t("hero.cta.projects")}
+        <span aria-hidden="true">→</span>
       </a>
       <a
         href="/CVCastilloJuan.pdf"
         download
-        class="group relative inline-flex items-center gap-2 px-8 py-4 bg-primary-500 text-primary-900 backdrop-blur-lg rounded-full overflow-hidden transition-all duration-300 hover:bg-primary-900 hover:text-primary-500"
-        data-aos="fade-left"
+        class="inline-flex items-center gap-2 px-6 py-3 border border-surface-300 dark:border-neutral-700 text-ink-700 dark:text-neutral-300 rounded-lg font-medium text-sm hover:border-accent dark:hover:border-accent-dark hover:text-accent dark:hover:text-accent-dark transition-colors"
       >
-        <span class="relative z-10 font-medium"> {t("hero.cta.cv")}</span>
-        <iconify-icon
-          icon="ri:download-line"
-          class="relative z-10 w-5 h-5 transition-transform duration-300 group-hover:translate-y-1"
-        >
-        </iconify-icon>
+        {t("hero.cta.cv")}
+        <span aria-hidden="true">↓</span>
       </a>
     </div>
   </div>
 </section>
 
-<script>
-  import Typed from "typed.js";
-
-  // Initialize Typed.js
-  const typedElement = document.querySelector("#typed") as HTMLElement;
-  const strings = JSON.parse(typedElement?.dataset.strings || "[]");
-
-  new Typed("#typed", {
-    strings,
-    typeSpeed: 50,
-    backSpeed: 50,
-    backDelay: 2000,
-    loop: true,
-  });
-
-  const wrapper = document.getElementById("logo-wrapper");
-  const logo = document.getElementById("logo");
-  const logoHover = document.getElementById("logo-hover");
-
-  wrapper.addEventListener("mouseenter", () => {
-    wrapper.classList.remove("rotate-out");
-    wrapper.classList.add("rotate-in");
-
-    // Al inicio del giro, comienza transición de imagen
-    logo.style.opacity = "0";
-    logoHover.style.opacity = "1";
-  });
-
-  wrapper.addEventListener("mouseleave", () => {
-    wrapper.classList.remove("rotate-in");
-    wrapper.classList.add("rotate-out");
-
-    // Al inicio del giro hacia atrás, vuelve la imagen original
-    logo.style.opacity = "1";
-    logoHover.style.opacity = "0";
-  });
-</script>
 <style>
-  @keyframes spin360 {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  .fade-in {
+    animation: fadeIn 0.6s ease both;
   }
-
-  @keyframes spinBack {
-    from {
-      transform: rotate(360deg);
-    }
-    to {
-      transform: rotate(0deg);
-    }
-  }
-
-  .rotate-in {
-    animation: spin360 0.5s ease-in-out forwards;
-  }
-
-  .rotate-out {
-    animation: spinBack 0.5s ease-in-out forwards;
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 </style>

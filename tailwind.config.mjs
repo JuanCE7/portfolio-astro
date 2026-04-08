@@ -1,23 +1,28 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        primary: {
-          900: "#9a0000", // Dark red
-          800: "#9a0000",
-          700: "#d4cabe",
-          600: "#53081",
-          500: "#fff",
+        accent: {
+          DEFAULT: "#C41E3A",
+          dark: "#E8324D",
         },
-        gradient: {
-          start: "#000",
-          end: "#530808",
+        ink: {
+          900: "#111111",
+          700: "#444444",
+          400: "#888888",
+        },
+        surface: {
+          100: "#FFFFFF",
+          200: "#F7F7F7",
+          300: "#E5E5E5",
         },
       },
       fontFamily: {
-        outfit: ["Outfit Variable", "sans-serif"],
+        figtree: ["Figtree Variable", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
       },
     },
   },
