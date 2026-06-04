@@ -57,6 +57,17 @@ export const ui = {
     "experience.unl.task3":
       "Installation and routing of projectors, printers, and computers.",
 
+    "experience.saluto.role": "Backend Developer",
+    "experience.saluto.company": "Saluto • Oct 2025 - Present",
+    "experience.saluto.task1":
+      "Backend microservices development with NestJS and Node.js using TypeScript.",
+    "experience.saluto.task2":
+      "PDF generation microservice and AI-powered voice-to-form mapping using generative AI.",
+    "experience.saluto.task3":
+      "Authentication service, cron jobs, and multi-channel communications (WhatsApp, email, Saluto push notifications).",
+    "experience.saluto.task4":
+      "Platform support and incident management.",
+
     "experience.freelance.role": "Developer",
     "experience.freelance.company": "Freelance • Oct 2024 - Present",
     "experience.freelance.task1":
@@ -119,7 +130,6 @@ export const ui = {
     "socials.whatsapp.description":
       "Direct messaging network to contact the portfolio owner",
     "socials.gmail.description": "Personal email for job offers or questions",
-    "footer.rights": "All rights reserved.",
   },
   es: {
     "hero.name": "Juan Francisco Castillo",
@@ -171,6 +181,17 @@ export const ui = {
       "Configuración y particionamiento de sistemas operativos (Linux, Windows).",
     "experience.unl.task3":
       "Instalación y enrutamiento de proyectores, impresoras y computadores.",
+
+    "experience.saluto.role": "Desarrollador Backend",
+    "experience.saluto.company": "Saluto • Oct 2025 - Presente",
+    "experience.saluto.task1":
+      "Desarrollo de microservicios backend con NestJS y Node.js usando TypeScript.",
+    "experience.saluto.task2":
+      "Microservicio de generación de PDFs y mapeo mediante IA generativa para rellenar formularios con voz.",
+    "experience.saluto.task3":
+      "Servicio de autenticación, crons y comunicaciones multicanal (WhatsApp, email y notificaciones de Saluto).",
+    "experience.saluto.task4":
+      "Soporte y gestión de incidencias en la plataforma.",
 
     "experience.freelance.role": "Desarrollador",
     "experience.freelance.company": "Freelance • Oct 2024 - Presente",
@@ -234,6 +255,5 @@ export const ui = {
       "Red de mensajería directa con el dueño del portfolio",
     "socials.gmail.description":
       "Correo personal para que se puedan contactar en caso de alguna oferta o curiosidad",
-    "footer.rights": "Todos los derechos reservados.",
   },
 } as const;

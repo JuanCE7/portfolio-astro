@@ -8,10 +8,10 @@ const links = [
 ];
 ---
 
-<footer class="py-10 border-t border-surface-300 dark:border-neutral-800">
+<footer class="py-10 border-t border-white/30 dark:border-neutral-800/40 bg-white/60 dark:bg-neutral-950/70 backdrop-blur-md relative z-10">
   <div class="max-w-3xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
     <p class="font-mono text-xs text-ink-400 dark:text-neutral-500">
-      &copy; {new Date().getFullYear()} Francisco Castillo. {t("footer.rights")}
+      &copy; {new Date().getFullYear()} Francisco Castillo. 
     </p>
     <div class="flex gap-6">
       {links.map(link => (

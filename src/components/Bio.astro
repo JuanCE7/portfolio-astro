@@ -3,7 +3,7 @@ const { t } = Astro.props;
 ---
 
 <!-- About -->
-<section id="bio" class="py-20 section-fade">
+<section id="bio" class="py-20 section-fade bg-white/60 dark:bg-neutral-950/65 backdrop-blur-sm rounded-3xl my-8 px-6 sm:px-10 border border-white/70 dark:border-white/8 shadow-lg shadow-black/5 dark:shadow-black/25 border-t-2 border-t-accent/50 dark:border-t-accent-dark/50">
   <p class="font-mono text-xs text-ink-400 dark:text-neutral-500 tracking-widest uppercase mb-8">{t("about.title")}</p>
 
   <div class="flex flex-col sm:flex-row gap-8 items-start">
@@ -23,16 +23,29 @@ const { t } = Astro.props;
   </div>
 </section>
 
-<hr class="border-surface-300 dark:border-neutral-800" />
+<hr class="border-white/30 dark:border-neutral-800/50 mx-0" />
 
 <!-- Experience -->
-<section id="experience" class="py-20 section-fade">
+<section id="experience" class="py-20 section-fade bg-white/60 dark:bg-neutral-950/65 backdrop-blur-sm rounded-3xl my-8 px-6 sm:px-10 border border-white/70 dark:border-white/8 shadow-lg shadow-black/5 dark:shadow-black/25 border-t-2 border-t-accent/50 dark:border-t-accent-dark/50">
   <p class="font-mono text-xs text-ink-400 dark:text-neutral-500 tracking-widest uppercase mb-10">{t("experience.title")}</p>
 
-  <div class="border-l-2 border-surface-300 dark:border-neutral-800 pl-6 space-y-10">
+  <div class="border-l-2 border-white/50 dark:border-neutral-700/60 pl-6 space-y-10">
+    <!-- Saluto (current) -->
+    <div class="relative">
+      <span class="absolute -left-[1.5625rem] top-1 w-3 h-3 rounded-full bg-accent dark:bg-accent-dark ring-4 ring-white dark:ring-neutral-950"></span>
+      <p class="font-mono text-xs text-ink-400 dark:text-neutral-500 mb-1">{t("experience.saluto.company")}</p>
+      <h3 class="text-base font-semibold text-ink-900 dark:text-neutral-100 mb-2">{t("experience.saluto.role")}</h3>
+      <ul class="space-y-1 text-sm text-ink-700 dark:text-neutral-400">
+        <li>{t("experience.saluto.task1")}</li>
+        <li>{t("experience.saluto.task2")}</li>
+        <li>{t("experience.saluto.task3")}</li>
+        <li>{t("experience.saluto.task4")}</li>
+      </ul>
+    </div>
+
     <!-- Freelance -->
     <div class="relative">
-      <span class="absolute -left-[1.5625rem] top-1 w-3 h-3 rounded-full bg-accent dark:bg-accent-dark ring-4 ring-surface-100 dark:ring-neutral-950"></span>
+      <span class="absolute -left-[1.5625rem] top-1 w-3 h-3 rounded-full bg-surface-300 dark:bg-neutral-700 ring-4 ring-white dark:ring-neutral-950"></span>
       <p class="font-mono text-xs text-ink-400 dark:text-neutral-500 mb-1">{t("experience.freelance.company")}</p>
       <h3 class="text-base font-semibold text-ink-900 dark:text-neutral-100 mb-2">{t("experience.freelance.role")}</h3>
       <ul class="space-y-1 text-sm text-ink-700 dark:text-neutral-400">
@@ -44,7 +57,7 @@ const { t } = Astro.props;
 
     <!-- Coopmego -->
     <div class="relative">
-      <span class="absolute -left-[1.5625rem] top-1 w-3 h-3 rounded-full bg-surface-300 dark:bg-neutral-700 ring-4 ring-surface-100 dark:ring-neutral-950"></span>
+      <span class="absolute -left-[1.5625rem] top-1 w-3 h-3 rounded-full bg-surface-300 dark:bg-neutral-700 ring-4 ring-white dark:ring-neutral-950"></span>
       <p class="font-mono text-xs text-ink-400 dark:text-neutral-500 mb-1">{t("experience.coopmego.company")}</p>
       <h3 class="text-base font-semibold text-ink-900 dark:text-neutral-100 mb-2">{t("experience.coopmego.role")}</h3>
       <ul class="space-y-1 text-sm text-ink-700 dark:text-neutral-400">
@@ -57,7 +70,7 @@ const { t } = Astro.props;
 
     <!-- UNL -->
     <div class="relative">
-      <span class="absolute -left-[1.5625rem] top-1 w-3 h-3 rounded-full bg-surface-300 dark:bg-neutral-700 ring-4 ring-surface-100 dark:ring-neutral-950"></span>
+      <span class="absolute -left-[1.5625rem] top-1 w-3 h-3 rounded-full bg-surface-300 dark:bg-neutral-700 ring-4 ring-white dark:ring-neutral-950"></span>
       <p class="font-mono text-xs text-ink-400 dark:text-neutral-500 mb-1">{t("experience.unl.company")}</p>
       <h3 class="text-base font-semibold text-ink-900 dark:text-neutral-100 mb-2">{t("experience.unl.role")}</h3>
       <ul class="space-y-1 text-sm text-ink-700 dark:text-neutral-400">
@@ -69,7 +82,7 @@ const { t } = Astro.props;
   </div>
 </section>
 
-<hr class="border-surface-300 dark:border-neutral-800" />
+<hr class="border-white/20 dark:border-neutral-800/30 my-1" />
 
 <style>
   .section-fade {
