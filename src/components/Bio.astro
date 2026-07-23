@@ -1,5 +1,14 @@
 ---
 const { t } = Astro.props;
+
+const salutoStack = [
+  "NestJS",
+  "Node.js",
+  "TypeScript",
+  "Microservicios",
+  "IA generativa",
+  "WhatsApp API",
+];
 ---
 
 <!-- About -->
@@ -33,14 +42,46 @@ const { t } = Astro.props;
     <!-- Saluto (current) -->
     <div class="relative">
       <span class="absolute -left-[1.5625rem] top-1 w-3 h-3 rounded-full bg-accent dark:bg-accent-dark ring-4 ring-white dark:ring-neutral-950"></span>
-      <p class="font-mono text-xs text-ink-400 dark:text-neutral-500 mb-1">{t("experience.saluto.company")}</p>
+
+      <div class="flex flex-wrap items-center gap-2 mb-1">
+        <p class="font-mono text-xs text-ink-400 dark:text-neutral-500">{t("experience.saluto.company")}</p>
+        <span class="font-mono text-[0.625rem] uppercase tracking-wider px-2 py-0.5 rounded-full border border-accent/40 dark:border-accent-dark/40 text-accent dark:text-accent-dark bg-accent/5 dark:bg-accent-dark/10">
+          {t("experience.current")}
+        </span>
+      </div>
+
       <h3 class="text-base font-semibold text-ink-900 dark:text-neutral-100 mb-2">{t("experience.saluto.role")}</h3>
+
+      <p class="text-sm text-ink-700 dark:text-neutral-400 leading-relaxed mb-3">
+        {t("experience.saluto.summary")}
+      </p>
+
       <ul class="space-y-1 text-sm text-ink-700 dark:text-neutral-400">
         <li>{t("experience.saluto.task1")}</li>
         <li>{t("experience.saluto.task2")}</li>
         <li>{t("experience.saluto.task3")}</li>
         <li>{t("experience.saluto.task4")}</li>
+        <li>{t("experience.saluto.task5")}</li>
+        <li>{t("experience.saluto.task6")}</li>
       </ul>
+
+      <div class="flex flex-wrap gap-1.5 mt-3">
+        {salutoStack.map(tech => (
+          <span class="font-mono text-xs px-2 py-0.5 border border-white/50 dark:border-neutral-700/50 text-ink-400 dark:text-neutral-500 rounded bg-white/30 dark:bg-neutral-800/40">
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      <a
+        href="https://salutoapps.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1 text-sm font-medium text-accent dark:text-accent-dark hover:underline underline-offset-4 w-fit mt-3"
+      >
+        {t("experience.visitSite")}
+        <span aria-hidden="true">→</span>
+      </a>
     </div>
 
     <!-- Freelance -->

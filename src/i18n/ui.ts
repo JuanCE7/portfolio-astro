@@ -36,6 +36,8 @@ export const ui = {
     "about.gradeTwo": "Computer Science Engineer",
     "about.gradeThree": "Freelancer",
     "experience.title": "EXPERIENCE",
+    "experience.current": "Current",
+    "experience.visitSite": "Visit site",
     "experience.coopmego.role": "Intern in Technology Department",
     "experience.coopmego.company": "Coopmego • Apr 2024 - Oct 2024",
     "experience.coopmego.task1":
@@ -59,14 +61,20 @@ export const ui = {
 
     "experience.saluto.role": "Backend Developer",
     "experience.saluto.company": "Saluto • Oct 2025 - Present",
+    "experience.saluto.summary":
+      "Cloud platform for clinical management and ERP aimed at clinics and healthcare professionals: digital medical records, scheduling, electronic invoicing and inventory.",
     "experience.saluto.task1":
-      "Backend microservices development with NestJS and Node.js using TypeScript.",
+      "Development and maintenance of backend microservices with NestJS, Node.js and TypeScript within a distributed architecture.",
     "experience.saluto.task2":
-      "PDF generation microservice and AI-powered voice-to-form mapping using generative AI.",
+      "PDF generation microservice for clinical and administrative documents.",
     "experience.saluto.task3":
-      "Authentication service, cron jobs, and multi-channel communications (WhatsApp, email, Saluto push notifications).",
+      "Generative AI mapping to fill in clinical forms by voice (voice-to-form).",
     "experience.saluto.task4":
-      "Platform support and incident management.",
+      "Authentication and authorization service, plus scheduled jobs (crons) for recurring processes.",
+    "experience.saluto.task5":
+      "Multi-channel communications: WhatsApp, email and Saluto app push notifications.",
+    "experience.saluto.task6":
+      "Platform support, incident management and bug fixing in production.",
 
     "experience.freelance.role": "Developer",
     "experience.freelance.company": "Freelance • Oct 2024 - Present",
@@ -77,6 +85,9 @@ export const ui = {
     "experience.freelance.task3":
       "Use of databases such as MongoDB, Postgres, MySQL.",
     "projects.title": "PROJECTS",
+    "projects.saluto.title": "Saluto — Clinical Management Platform",
+    "projects.saluto.description":
+      "Cloud platform for clinical management and ERP used by clinics and healthcare professionals, with a web ERP and mobile apps. As a backend developer I work on the microservices that support it: PDF generation for clinical and administrative documents, voice-to-form mapping with generative AI, authentication, scheduled jobs and multi-channel notifications via WhatsApp, email and push.",
     "projects.testcase.title": "Test Case Craft",
     "projects.testcase.description":
       "Project focused on Software Quality, which generates functional test cases from use cases using Artificial Intelligence. It includes login, user management, and project creation with their respective use cases and test cases.",
@@ -161,6 +172,8 @@ export const ui = {
     "about.gradeTwo": "Ingeniero en Ciencias de la Computación",
     "about.gradeThree": "Autónomo",
     "experience.title": "EXPERIENCIA",
+    "experience.current": "Actual",
+    "experience.visitSite": "Visitar sitio",
     "experience.coopmego.role": "Pasante en área de Tecnología",
     "experience.coopmego.company": "Coopmego • Abr 2024 - Oct 2024",
     "experience.coopmego.task1":
@@ -184,14 +197,20 @@ export const ui = {
 
     "experience.saluto.role": "Desarrollador Backend",
     "experience.saluto.company": "Saluto • Oct 2025 - Presente",
+    "experience.saluto.summary":
+      "Plataforma cloud de gestión clínica y ERP para clínicas y profesionales de la salud: historia clínica digital, agendamiento, facturación electrónica e inventario.",
     "experience.saluto.task1":
-      "Desarrollo de microservicios backend con NestJS y Node.js usando TypeScript.",
+      "Desarrollo y mantenimiento de microservicios backend con NestJS, Node.js y TypeScript dentro de una arquitectura distribuida.",
     "experience.saluto.task2":
-      "Microservicio de generación de PDFs y mapeo mediante IA generativa para rellenar formularios con voz.",
+      "Microservicio de generación de PDFs para documentos clínicos y administrativos.",
     "experience.saluto.task3":
-      "Servicio de autenticación, crons y comunicaciones multicanal (WhatsApp, email y notificaciones de Saluto).",
+      "Mapeo con IA generativa para rellenar formularios clínicos mediante voz (voice-to-form).",
     "experience.saluto.task4":
-      "Soporte y gestión de incidencias en la plataforma.",
+      "Servicio de autenticación y autorización, además de tareas programadas (crons) para procesos recurrentes.",
+    "experience.saluto.task5":
+      "Comunicaciones multicanal: WhatsApp, correo electrónico y notificaciones push de la app Saluto.",
+    "experience.saluto.task6":
+      "Soporte de plataforma, gestión de incidencias y corrección de errores en producción.",
 
     "experience.freelance.role": "Desarrollador",
     "experience.freelance.company": "Freelance • Oct 2024 - Presente",
@@ -202,6 +221,9 @@ export const ui = {
     "experience.freelance.task3":
       "Uso de base de datos como MongoDB, Postgres, MySQL.",
     "projects.title": "PROYECTOS",
+    "projects.saluto.title": "Saluto — Plataforma de Gestión Clínica",
+    "projects.saluto.description":
+      "Plataforma cloud de gestión clínica y ERP usada por clínicas y profesionales de la salud, con un ERP web y aplicaciones móviles. Como desarrollador backend trabajo en los microservicios que la sostienen: generación de PDFs para documentos clínicos y administrativos, mapeo por voz a formularios con IA generativa, autenticación, tareas programadas y notificaciones multicanal por WhatsApp, correo y push.",
     "projects.testcase.title": "Test Case Craft",
     "projects.testcase.description":
       "Proyecto enfocado en la Calidad del Software, el cual consiste en generar casos de prueba funcionales a partir de casos de uso mediante el uso de la Inteligencia Artificial, este se enfoca en una funcionalidad que genera N casos de prueba de acuerdo a un caso de uso ingresado, posee desde login, gestión de usuarios, hasta la creación de proyectos con sus debidos casos de uso y casos de prueba funcionales.",
